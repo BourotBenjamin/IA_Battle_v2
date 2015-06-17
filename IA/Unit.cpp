@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <algorithm>
 #include "Unit.hpp"
+#include "Terrain.hpp"
 #include <memory>
 #include <numeric>
 
@@ -11,7 +12,7 @@ int Unit::idCount_=0;
 void Unit::init_()
 {
     id_ = idCount_++;
-    this->position_ = Point(std::rand()%100,std::rand()%100);
+    this->position_ = Point(std::rand()%Terrain::getMaxX(),std::rand()%Terrain::getMaxY());
     this->capacities_.reserve(7);
     this->capacities_.push_back(std::unique_ptr<Capacity>(new SpeedCapacity()));
     this->capacities_.push_back(std::unique_ptr<Capacity>(new LifeCapacity()));

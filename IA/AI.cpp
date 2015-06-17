@@ -6,6 +6,7 @@
 #include "EmptyAction.hpp"
 #include "Unit.hpp"
 #include "Army.hpp"
+#include "Terrain.hpp"
 #include <iostream>
 
 //Parenthesis overloading for applying the AI on the unit provided in parameter
@@ -30,7 +31,8 @@ std::unique_ptr<Action> AI::operator()(Unit& unit, Army& allies, Army& opponents
             }
         } else {
             Unit& target = opponents.getNearestUnit	(unit.getPosition());
-            Point p = (2*unit.getPosition()) - target.getPosition();
+			Point p = (2 * unit.getPosition()) - target.getPosition();
+			Terrain::clampPointInTerrain(p);
             return std::unique_ptr<Action>(new MoveAction(unit, 1000*p));
         }
     } catch(std::invalid_argument& e) {
