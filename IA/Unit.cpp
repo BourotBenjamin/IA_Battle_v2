@@ -2,6 +2,7 @@
 #include <algorithm>
 #include "Unit.hpp"
 #include <memory>
+#include <numeric>
 
 //static counter used for unique id creation
 int Unit::idCount_=0;

@@ -15,6 +15,7 @@
     <ClCompile Include="Army.cpp" />
     <ClCompile Include="battle.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="training.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
@@ -35,6 +36,7 @@
     <ClInclude Include="RegenCapacity.hpp" />
     <ClInclude Include="ShotAction.hpp" />
     <ClInclude Include="SpeedCapacity.hpp" />
+    <ClInclude Include="Terrain.hpp" />
     <ClInclude Include="training.hpp" />
     <ClInclude Include="Unit.hpp" />
   </ItemGroup>
