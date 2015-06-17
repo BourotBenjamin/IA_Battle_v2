@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers sources\Extractors">
+      <UniqueIdentifier>{124e1f27-6209-48b7-ada7-af50efb1c0a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AI.cpp">
@@ -35,6 +38,21 @@
     </ClCompile>
     <ClCompile Include="Terrain.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Extractor.cpp">
+      <Filter>Fichiers sources\Extractors</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorU.cpp">
+      <Filter>Fichiers sources\Extractors</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorA.cpp">
+      <Filter>Fichiers sources\Extractors</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorO.cpp">
+      <Filter>Fichiers sources\Extractors</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorP.cpp">
+      <Filter>Fichiers sources\Extractors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +112,21 @@
     </ClInclude>
     <ClInclude Include="Terrain.hpp">
       <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Extractor.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorU.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorA.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorO.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorP.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

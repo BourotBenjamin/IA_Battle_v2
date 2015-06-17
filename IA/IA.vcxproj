@@ -14,10 +14,15 @@
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="Army.cpp" />
     <ClCompile Include="battle.cpp" />
+    <ClCompile Include="Extractor.cpp" />
+    <ClCompile Include="ExtractorA.cpp" />
+    <ClCompile Include="ExtractorO.cpp" />
+    <ClCompile Include="ExtractorP.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="training.cpp" />
     <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="ExtractorU.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.hpp" />
@@ -28,6 +33,10 @@
     <ClInclude Include="Capacity.hpp" />
     <ClInclude Include="DamageCapacity.hpp" />
     <ClInclude Include="EmptyAction.hpp" />
+    <ClInclude Include="Extractor.h" />
+    <ClInclude Include="ExtractorA.h" />
+    <ClInclude Include="ExtractorO.h" />
+    <ClInclude Include="ExtractorP.h" />
     <ClInclude Include="FirerateCapacity.hpp" />
     <ClInclude Include="LifeCapacity.hpp" />
     <ClInclude Include="MoveAction.hpp" />
@@ -39,6 +48,7 @@
     <ClInclude Include="Terrain.hpp" />
     <ClInclude Include="training.hpp" />
     <ClInclude Include="Unit.hpp" />
+    <ClInclude Include="ExtractorU.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3B0339AA-1172-4B1A-AA88-9427A68A1032}</ProjectGuid>
