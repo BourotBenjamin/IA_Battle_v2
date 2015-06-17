@@ -31,9 +31,9 @@ std::unique_ptr<Action> AI::operator()(Unit& unit, Army& allies, Army& opponents
             }
         } else {
             Unit& target = opponents.getNearestUnit	(unit.getPosition());
-			Point p = (2 * unit.getPosition()) - target.getPosition();
+			Point p = 1000*(2 * unit.getPosition()) - target.getPosition();
 			Terrain::clampPointInTerrain(p);
-            return std::unique_ptr<Action>(new MoveAction(unit, 1000*p));
+            return std::unique_ptr<Action>(new MoveAction(unit, p));
         }
     } catch(std::invalid_argument& e) {
         //std::cout<<e.what()<<std::endl;
