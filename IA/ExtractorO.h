@@ -7,5 +7,6 @@ public:
 	ExtractorO();
 	~ExtractorO();
 	Army get(Unit& unit, Army& allies, Army& oponents);
+	std::string ExtractorO::getCode();
 };
 

@@ -14,11 +14,13 @@
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="Army.cpp" />
     <ClCompile Include="battle.cpp" />
+    <ClCompile Include="common\EsgiShader.cpp" />
     <ClCompile Include="Extractor.cpp" />
     <ClCompile Include="ExtractorA.cpp" />
     <ClCompile Include="ExtractorO.cpp" />
     <ClCompile Include="ExtractorP.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OpenGLRenderer.cpp" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="training.cpp" />
     <ClCompile Include="Unit.cpp" />
@@ -31,6 +33,7 @@
     <ClInclude Include="Army.hpp" />
     <ClInclude Include="battle.hpp" />
     <ClInclude Include="Capacity.hpp" />
+    <ClInclude Include="common\EsgiShader.h" />
     <ClInclude Include="DamageCapacity.hpp" />
     <ClInclude Include="EmptyAction.hpp" />
     <ClInclude Include="Extractor.h" />
@@ -40,6 +43,8 @@
     <ClInclude Include="FirerateCapacity.hpp" />
     <ClInclude Include="LifeCapacity.hpp" />
     <ClInclude Include="MoveAction.hpp" />
+    <ClInclude Include="OpenGLInclude.h" />
+    <ClInclude Include="OpenGLRenderer.h" />
     <ClInclude Include="Point.hpp" />
     <ClInclude Include="RangeCapacity.hpp" />
     <ClInclude Include="RegenCapacity.hpp" />
@@ -49,6 +54,7 @@
     <ClInclude Include="training.hpp" />
     <ClInclude Include="Unit.hpp" />
     <ClInclude Include="ExtractorU.h" />
+    <ClInclude Include="virtualOpenGL.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3B0339AA-1172-4B1A-AA88-9427A68A1032}</ProjectGuid>
@@ -84,9 +90,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\Libs;..\Libs\glew-1.12.0\include;..\Libs\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Libs\freeglut\lib;..\Libs\glew-1.12.0\lib\Release\Win32</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

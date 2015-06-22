@@ -159,13 +159,13 @@ Unit Unit::operator*(const Unit& unit)const
 {
     std::vector<int> maxLevels(7);
     for(int i = 0; i < 7; ++i) {
-        maxLevels[i] = std::max(capacities_[i]->getLevel(), unit.getCapacity(i)->getLevel());
+        maxLevels[i] = std::max<int>(capacities_[i]->getLevel(), unit.getCapacity(i)->getLevel());
     }
     int gA = this->getLevel();
     int gB = unit.getLevel();
     int global = gA;
     if(gA!=gB)
-        global = std::min(gA, gB)+std::rand()%std::abs(gA-gB);
+        global = std::min<int>(gA, gB)+std::rand()%std::abs(gA-gB);
     std::vector<int> levels(7,0);
     while(global) {
         int index = std::rand()%7;

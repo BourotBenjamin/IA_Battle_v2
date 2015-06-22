@@ -54,60 +54,18 @@
     <ClCompile Include="ExtractorP.cpp">
       <Filter>Fichiers sources\Extractors</Filter>
     </ClCompile>
+    <ClCompile Include="common\EsgiShader.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AI.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="ArmorCapacity.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Army.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="battle.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Capacity.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="DamageCapacity.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="EmptyAction.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="FirerateCapacity.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="LifeCapacity.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveAction.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Point.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="RangeCapacity.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="RegenCapacity.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="ShotAction.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="SpeedCapacity.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
     <ClInclude Include="training.hpp">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="Unit.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Action.hpp">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="Terrain.hpp">
@@ -126,6 +84,66 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="ExtractorP.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="common\EsgiShader.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Army.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="AI.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ArmorCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="battle.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Capacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyAction.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="FirerateCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveAction.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RangeCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RegenCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ShotAction.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeedCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLInclude.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="virtualOpenGL.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,12 +6,13 @@
 #include "training.hpp"
 #include "fstream"
 
+#include "OpenGLRenderer.h"
+
 int main(int argc, char* argv[])
 {
 	if (argc > 2)
 	{
-		Terrain::setMaxX(atoi(argv[1]));
-		Terrain::setMaxY(atoi(argv[2]));
+		Terrain::Initialize(atoi(argv[1]),atoi(argv[2]));
 	}
 	else
 	{
@@ -24,6 +25,7 @@ int main(int argc, char* argv[])
 		Terrain::setMaxX(x);
 		Terrain::setMaxY(y);
 	}
+	OpenGLRenderer renderer(argc, argv);
     std::srand(time(NULL));
     std::vector<std::unique_ptr<Army> > champions;
     try {
