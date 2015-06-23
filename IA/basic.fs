@@ -1,8 +1,14 @@
-varying vec3 v_color;
 
-uniform vec4 u_constantColor;
+varying vec3 v_normal;
+varying vec4 v_color;
+
+const vec3 c_lightDirection = vec3(1.0, 1.0, 0.0);
 
 void main(void)
 {
-	gl_FragColor = vec4(v_color,1.0) * u_constantColor;
+    vec3 N = normalize(v_normal);
+	vec3 L = normalize(c_lightDirection);
+	float NdotL = max(dot(N, L), 1.0);
+
+  	gl_FragColor = v_color * NdotL;
 }

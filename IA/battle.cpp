@@ -2,6 +2,8 @@
 #include "Army.hpp"
 #include "AI.hpp"
 
+#include "OpenGLInclude.h"
+
 #include <vector>
 #include <algorithm>
 #include <memory>
@@ -28,10 +30,10 @@ void fight(const Army& a, const Army& b, int& scoreA, int& scoreB, bool log)
 
     Army A = a;
     Army B = b;
+
     AI ai;
     int turn = 1;
     while(A.size()>0 && B.size()>0 && turn++ < 10000) {
-
         if(log) {
             std::cout<<"-------------------------------"<<std::endl;
             std::cout<<"Turn "<<(turn)<<std::endl;

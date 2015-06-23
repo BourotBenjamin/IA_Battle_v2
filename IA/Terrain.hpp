@@ -1,21 +1,22 @@
 #pragma once
 #include "Point.hpp"
-#include "OpenGLInclude.h"
+#include "virtualOpenGL.h"
 
-class Terrain
+class Terrain : public virtualOpenGl
 {
 public:
-	static void Initialize(int Max_X, int Max_Y);
+	Terrain() {}
+	~Terrain() {}
+	void Initialize();
 	static void clampPointInTerrain(Point& position);
 	static int getMaxX() { return MAX_X; }
 	static int getMaxY() { return MAX_Y; }
 	static void setMaxX(int x) { MAX_X = x; }
 	static void setMaxY(int y) { MAX_Y = y; }
-	static void draw();
+	void draw(GLuint program);
 private:
 	static int MAX_X;
 	static int MAX_Y;
-	static GLuint terrainVBO;
-	static GLuint terrainEBO;
-	static EsgiShader basicShader;
+	GLuint terrainVBO;
+	GLuint terrainEBO;
 };

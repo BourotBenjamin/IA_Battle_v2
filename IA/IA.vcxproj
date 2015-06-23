@@ -20,6 +20,7 @@
     <ClCompile Include="ExtractorO.cpp" />
     <ClCompile Include="ExtractorP.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OpenGLHelper.cpp" />
     <ClCompile Include="OpenGLRenderer.cpp" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="training.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="FirerateCapacity.hpp" />
     <ClInclude Include="LifeCapacity.hpp" />
     <ClInclude Include="MoveAction.hpp" />
+    <ClInclude Include="OpenGLHelper.h" />
     <ClInclude Include="OpenGLInclude.h" />
     <ClInclude Include="OpenGLRenderer.h" />
     <ClInclude Include="Point.hpp" />

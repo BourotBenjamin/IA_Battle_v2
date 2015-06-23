@@ -3,34 +3,28 @@
 int Terrain::MAX_X;
 int Terrain::MAX_Y;
 
-GLuint Terrain::terrainVBO;
-GLuint Terrain::terrainEBO;
-EsgiShader Terrain::basicShader;
-
-void Terrain::Initialize(int Max_X, int Max_Y)
+void Terrain::Initialize()
 {
 	static const float g_Triangle[] = {
-		-0.8f, 0.8f, 1.0f,
-		0.0f, -0.8f, 0.5f,
-		0.8f, 0.8f, 0.0f
+		-MAX_X, -MAX_Y, 1.0f,		// 0
+		MAX_X, -MAX_Y, 1.0f,  		// 1	
+		 MAX_X,  MAX_Y, 1.0f,		// 2
+		-MAX_X, MAX_Y, 1.0f		// 3
 	};
 
-	basicShader.LoadVertexShader("basic.vs");
-	basicShader.LoadFragmentShader("basic.fs");
-	basicShader.Create();
-
-	Terrain::setMaxX(Max_X);
-	Terrain::setMaxY(Max_Y);
-
 	glGenBuffers(1, &terrainVBO);
-	glBindBuffer(GL_ARRAY_BUFFER, terrainVBO); // maintenant GL_ARRAY_BUFFER est triangleVBO
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float)* 9, g_Triangle, GL_STATIC_DRAW); //en général
+	glBindBuffer(GL_ARRAY_BUFFER, terrainVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float)* 3 * 4, g_Triangle, GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	static const unsigned short inidicesTriangle[] = { 0, 1, 2 };
+	static const unsigned short indicesTriangle[] = {
+		0, 1, 2,
+		2, 3, 0
+	};
+
 	glGenBuffers(1, &terrainEBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, terrainEBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned short)* 3, inidicesTriangle, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned short) * 3 * 2, indicesTriangle, GL_STATIC_DRAW);
 }
 
 void Terrain::clampPointInTerrain(Point& position) {
@@ -39,42 +33,30 @@ void Terrain::clampPointInTerrain(Point& position) {
 	{
 		position.setX(Terrain::MAX_X);
 	}
-	else if (position.getX() < 0)
+	else if (position.getX() < -Terrain::MAX_X)
 	{
-		position.setX(0);
+		position.setX(-Terrain::MAX_X);
 	}
 	if (position.getY() > Terrain::MAX_Y)
 	{
 		position.setY(Terrain::MAX_Y);
 	}
-	else if (position.getY() < 0)
+	else if (position.getY() < -Terrain::MAX_Y)
 	{
-		position.setY(0);
+		position.setY(-Terrain::MAX_Y);
 	}
 }
 
-void Terrain::draw()
+void Terrain::draw(GLuint program)
 {
-	GLuint program = basicShader.GetProgram();
-	glUseProgram(basicShader.GetProgram());
-
 	glBindBuffer(GL_ARRAY_BUFFER, terrainVBO);
 
-	GLuint positionLocation = glGetAttribLocation(program, "a_position");
-	glVertexAttribPointer(positionLocation, 2, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
+	GLint positionLocation = glGetAttribLocation(program, "a_position");
 	glEnableVertexAttribArray(positionLocation);
+	glVertexAttribPointer(positionLocation, 3, GL_FLOAT, GL_FALSE, sizeof(float)* 3, 0);
 
-	GLuint intensityLocation = glGetAttribLocation(program, "a_intensity");
-	glVertexAttribPointer(intensityLocation, 1, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)(2 * sizeof(float)));
-	glEnableVertexAttribArray(intensityLocation);
-
-	GLint offsetLocation = glGetUniformLocation(program, "u_offset");
-	glUniform3f(offsetLocation, 0.0f, 0.0f, 0.0f);
-
-	GLint colorLocation = glGetUniformLocation(program, "u_constantColor");
-	glUniform4f(colorLocation, 1.0f, 0.0f, 0.0f, 1.0f);
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glDrawArrays(GL_TRIANGLES, 0, 4);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, terrainEBO);
-	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_SHORT, nullptr);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, nullptr);
 }
