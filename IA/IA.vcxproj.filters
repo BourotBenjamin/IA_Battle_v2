@@ -65,13 +65,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="training.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
     <ClInclude Include="Unit.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Terrain.hpp">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="Extractor.h">
@@ -150,6 +144,12 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="OpenGLHelper.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="training.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

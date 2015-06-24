@@ -22,12 +22,16 @@ void _motionCallback(int x, int y)
 
 void _mouseWheelCallback(int button, int dir, int x, int y)
 {
-	g_currentInstance->MouseWheelHanlder(button, dir, x, y);
+	g_currentInstance->MouseWheelHandler(button, dir, x, y);
 }
 
-void _idleCallback()
+void _keypressCallback(unsigned char key, int x, int y)
 {
-	std::cout << "coucou" << std::endl;
+	g_currentInstance->KeyBoardHandler(key, x, y);
+}
+
+void _idleCallback(){
+	g_currentInstance->IdleHandler();
 }
 
 OpenGLRenderer::OpenGLRenderer(int argc, char* argv[])
@@ -51,7 +55,12 @@ OpenGLRenderer::OpenGLRenderer(int argc, char* argv[])
 	glutMouseFunc(_mouseCallback);
 	glutMotionFunc(_motionCallback);
 	glutDisplayFunc(_drawCallback);
-	//
+	glutKeyboardFunc(_keypressCallback);
+}
+
+void OpenGLRenderer::StartDisplay(battleParameter &parameter)
+{
+	this->instanceParameter = parameter;
 	glutMainLoop();
 }
 
@@ -152,7 +161,33 @@ void OpenGLRenderer::MotionHandler(int x, int y)
 	glutPostRedisplay();
 }
 
-void OpenGLRenderer::MouseWheelHanlder(int button, int dir, int x, int y)
+void OpenGLRenderer::KeyBoardHandler(unsigned char key, int x, int y)
+{
+	switch (key)
+	{
+	case 'p' : //play pause
+		this->isPaused = !isPaused;
+		break;
+	case 'n' : //mode pas a pas
+		this->isStepByStep = !isStepByStep;
+		break;
+	case 'm' : //pas suivant
+		this->isPaused = false;
+		break;
+	}
+}
+
+void OpenGLRenderer::IdleHandler()
+{
+	if (isPaused)
+		return;
+	std::cout << "execute step" << std::endl;
+	executeOneTurn(this->instanceParameter);
+	if (isStepByStep)
+		isPaused = true;
+}
+
+void OpenGLRenderer::MouseWheelHandler(int button, int dir, int x, int y)
 {
 	depth += dir;
 	glutPostRedisplay();

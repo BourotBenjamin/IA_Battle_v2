@@ -4,6 +4,8 @@
 #include <vector>
 #include <iterator>
 
+#include "OpenGLRenderer.h"
+
 
 //struct storing together an army and its score,
 //usefull for storing and sorting the armies
@@ -45,19 +47,20 @@ std::unique_ptr<Army> train(int iterations, int threshold, int populationSize, i
     });
 
     //start the training
+	OpenGLRenderer renderer(0, 0);
     while(iterations--) {
         //tornament of all armies
         for(auto itA = armies.begin(); itA != armies.end(); ++itA) {
 
             for(auto itB = itA+1; itB != armies.end(); ++itB){
             	int sA, sB;
-            	fight(*(itA->army), *(itB->army), sA, sB);
+            	fight(*(itA->army), *(itB->army), sA, sB,renderer);
             	itA->score += sA;
             	itB->score += sB;
             }
             for(auto itC = champions.begin(); itC != champions.end(); ++itC) {
                 int sA, sC;
-                fight(*(itA->army), **itC, sA, sC);
+				fight(*(itA->army), **itC, sA, sC, renderer);
                 itA->score += sA*championsBonus;
                 itA->score -= (sC*championsBonus)/2;
             }
