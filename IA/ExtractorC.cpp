@@ -10,9 +10,10 @@ ExtractorC::~ExtractorC()
 {
 }
 
-float ExtractorC::get(Unit& unit, Army& allies, Army& oponents)
+float& ExtractorC::get(Unit& unit, Army& allies, Army& oponents)
 {
-	return extractorUnit->get(unit, allies, oponents).getCapacity(capacity)->getValue();
+	float c = extractorUnit->get(unit, allies, oponents).getCapacity(capacity)->getValue();
+	return c;
 }
 
 std::string ExtractorC::getCode()

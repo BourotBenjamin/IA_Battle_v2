@@ -10,7 +10,7 @@ ExtractorTH::~ExtractorTH()
 {
 }
 
-std::vector<std::shared_ptr<Unit>> ExtractorTH::get(Unit& unit, Army& allies, Army& oponents)
+std::vector<std::shared_ptr<Unit>>& ExtractorTH::get(Unit& unit, Army& allies, Army& oponents)
 {
 	std::vector<std::shared_ptr<Unit>> units = extractorArmy->get(unit, allies, oponents);
 	std::vector<std::shared_ptr<Unit>> vector;

@@ -6,7 +6,7 @@ class ExtractorTLD :
 public:
 	ExtractorTLD();
 	~ExtractorTLD();
-	std::vector<std::shared_ptr<Unit>> get(Unit& unit, Army& allies, Army& oponents);
+	std::vector<std::shared_ptr<Unit>>& get(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
 private:
 	Extractor<Point>* extractorPoint;

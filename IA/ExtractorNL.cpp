@@ -10,7 +10,7 @@ ExtractorNL::~ExtractorNL()
 {
 }
 
-std::vector<std::shared_ptr<Unit>> ExtractorNL::get(Unit& unit, Army& allies, Army& oponents)
+std::vector<std::shared_ptr<Unit>>& ExtractorNL::get(Unit& unit, Army& allies, Army& oponents)
 {
 	int capa_index = capacity;
 	std::vector<std::shared_ptr<Unit>> vector = extractorArmy->get(unit, allies, oponents);

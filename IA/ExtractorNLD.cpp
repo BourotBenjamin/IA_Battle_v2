@@ -10,7 +10,7 @@ ExtractorNLD::~ExtractorNLD()
 {
 }
 
-std::vector<std::shared_ptr<Unit>> ExtractorNLD::get(Unit& unit, Army& allies, Army& oponents)
+std::vector<std::shared_ptr<Unit>>& ExtractorNLD::get(Unit& unit, Army& allies, Army& oponents)
 {
 	Point p = extractorPoint->get(unit, allies, oponents);
 	std::vector<std::shared_ptr<Unit>> vector = extractorArmy->get(unit, allies, oponents);

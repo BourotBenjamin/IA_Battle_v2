@@ -10,7 +10,7 @@ ExtractorH::~ExtractorH()
 {
 }
 
-Unit ExtractorH::get(Unit& unit, Army& allies, Army& oponents)
+Unit& ExtractorH::get(Unit& unit, Army& allies, Army& oponents)
 {
 	float max = -1;
 	std::shared_ptr<Unit> best = nullptr;

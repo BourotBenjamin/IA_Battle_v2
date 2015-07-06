@@ -5,7 +5,7 @@ class ExtractorL :	public Extractor<Unit>
 public:
 	ExtractorL();
 	~ExtractorL();
-	Unit get(Unit& unit, Army& allies, Army& oponents);
+	Unit& get(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
 private:
 	Extractor<std::vector<std::shared_ptr<Unit>>>* extractorArmy;

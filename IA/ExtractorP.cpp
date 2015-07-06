@@ -10,7 +10,7 @@ ExtractorP::~ExtractorP()
 {
 }
 
-Point ExtractorP::get(Unit& unit, Army& allies, Army& oponents)
+Point& ExtractorP::get(Unit& unit, Army& allies, Army& oponents)
 {
 	return extractorUnit->get(unit, allies, oponents).getPosition();
 }

@@ -10,7 +10,7 @@ Extractor_a::~Extractor_a()
 {
 }
 
-float Extractor_a::get(Unit& unit, Army& allies, Army& oponents)
+float& Extractor_a::get(Unit& unit, Army& allies, Army& oponents)
 {
 	int nb_unit = 0;
 	float sum = 0;
@@ -19,7 +19,8 @@ float Extractor_a::get(Unit& unit, Army& allies, Army& oponents)
 		nb_unit++;
 		sum += u->getCapacity(capacity)->getValue();
 	}
-	return sum / nb_unit;
+	sum = sum / nb_unit;
+	return sum;
 }
 
 std::string Extractor_a::getCode()

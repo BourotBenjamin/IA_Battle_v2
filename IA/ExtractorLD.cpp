@@ -10,7 +10,7 @@ ExtractorLD::~ExtractorLD()
 {
 }
 
-Unit ExtractorLD::get(Unit& unit, Army& allies, Army& oponents)
+Unit& ExtractorLD::get(Unit& unit, Army& allies, Army& oponents)
 {
 	float min = FLT_MAX;
 	std::shared_ptr<Unit> nearest = nullptr;

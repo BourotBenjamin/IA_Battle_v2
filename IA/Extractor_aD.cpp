@@ -10,7 +10,7 @@ Extractor_aD::~Extractor_aD()
 {
 }
 
-float Extractor_aD::get(Unit& unit, Army& allies, Army& oponents)
+float& Extractor_aD::get(Unit& unit, Army& allies, Army& oponents)
 {
 	int nb_unit = 0;
 	float sum = 0;
@@ -20,7 +20,8 @@ float Extractor_aD::get(Unit& unit, Army& allies, Army& oponents)
 		nb_unit++;
 		sum += u->getPosition().distance(p);
 	}
-	return sum / nb_unit;
+	sum /= nb_unit;
+	return sum;
 }
 
 std::string Extractor_aD::getCode()

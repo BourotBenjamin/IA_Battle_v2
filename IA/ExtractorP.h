@@ -6,7 +6,7 @@ class ExtractorP :
 public:
 	ExtractorP();
 	~ExtractorP();
-	Point get(Unit& unit, Army& allies, Army& oponents);
+	Point& get(Unit& unit, Army& allies, Army& oponents);
 	std::string ExtractorP::getCode();
 private:
 	Extractor<Unit>* extractorUnit;

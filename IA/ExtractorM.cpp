@@ -10,7 +10,7 @@ ExtractorM::~ExtractorM()
 {
 }
 
-float ExtractorM::get(Unit& unit, Army& allies, Army& oponents)
+float& ExtractorM::get(Unit& unit, Army& allies, Army& oponents)
 {
 	float max = -1;
 	for each(auto& u in extractorArmy->get(unit, allies, oponents))

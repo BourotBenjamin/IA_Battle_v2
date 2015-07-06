@@ -10,7 +10,7 @@ ExtractorB::~ExtractorB()
 {
 }
 
-Point ExtractorB::get(Unit& unit, Army& allies, Army& oponents)
+Point& ExtractorB::get(Unit& unit, Army& allies, Army& oponents)
 {
 	int nb_unit = 0;
 	float sumX = 0;

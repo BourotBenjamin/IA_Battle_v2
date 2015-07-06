@@ -6,6 +6,6 @@ class ExtractorU : public Extractor<Unit>
 public:
 	ExtractorU();
 	~ExtractorU();
-	Unit get(Unit& unit, Army& allies, Army& oponents);
+	Unit& get(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
 };

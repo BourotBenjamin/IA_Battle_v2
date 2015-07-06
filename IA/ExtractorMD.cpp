@@ -10,7 +10,7 @@ ExtractorMD::~ExtractorMD()
 {
 }
 
-float ExtractorMD::get(Unit& unit, Army& allies, Army& oponents)
+float& ExtractorMD::get(Unit& unit, Army& allies, Army& oponents)
 {
 	float max = -1;
 	Point p = extractorPoint->get(unit, allies, oponents);

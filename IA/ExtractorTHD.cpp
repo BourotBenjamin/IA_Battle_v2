@@ -10,7 +10,7 @@ ExtractorTHD::~ExtractorTHD()
 {
 }
 
-std::vector<std::shared_ptr<Unit>> ExtractorTHD::get(Unit& unit, Army& allies, Army& oponents)
+std::vector<std::shared_ptr<Unit>>& ExtractorTHD::get(Unit& unit, Army& allies, Army& oponents)
 {
 	std::vector<std::shared_ptr<Unit>> units = extractorArmy->get(unit, allies, oponents);
 	Point p = extractorPoint->get(unit, allies, oponents);

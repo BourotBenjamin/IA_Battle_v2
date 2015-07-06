@@ -10,9 +10,10 @@ ExtractorD::~ExtractorD()
 {
 }
 
-float ExtractorD::get(Unit& unit, Army& allies, Army& oponents)
+float& ExtractorD::get(Unit& unit, Army& allies, Army& oponents)
 {
-	return extractorUnit->get(unit, allies, oponents).getPosition().distance(extractorPoint->get(unit, allies, oponents));
+	float d = extractorUnit->get(unit, allies, oponents).getPosition().distance(extractorPoint->get(unit, allies, oponents));
+	return d;
 }
 
 std::string ExtractorD::getCode()

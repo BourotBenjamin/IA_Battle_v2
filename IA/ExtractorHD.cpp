@@ -10,7 +10,7 @@ ExtractorHD::~ExtractorHD()
 {
 }
 
-Unit ExtractorHD::get(Unit& unit, Army& allies, Army& oponents)
+Unit& ExtractorHD::get(Unit& unit, Army& allies, Army& oponents)
 {
 	float max = -1;
 	std::shared_ptr<Unit> furthest = nullptr;
