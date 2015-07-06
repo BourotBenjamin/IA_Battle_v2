@@ -16,6 +16,8 @@
     <ClCompile Include="battle.cpp" />
     <ClCompile Include="Extractor.cpp" />
     <ClCompile Include="ExtractorA.cpp" />
+    <ClCompile Include="ExtractorC.cpp" />
+    <ClCompile Include="ExtractorD.cpp" />
     <ClCompile Include="ExtractorO.cpp" />
     <ClCompile Include="ExtractorP.cpp" />
     <ClCompile Include="main.cpp" />
@@ -35,6 +37,8 @@
     <ClInclude Include="EmptyAction.hpp" />
     <ClInclude Include="Extractor.h" />
     <ClInclude Include="ExtractorA.h" />
+    <ClInclude Include="ExtractorC.h" />
+    <ClInclude Include="ExtractorD.h" />
     <ClInclude Include="ExtractorO.h" />
     <ClInclude Include="ExtractorP.h" />
     <ClInclude Include="FirerateCapacity.hpp" />
