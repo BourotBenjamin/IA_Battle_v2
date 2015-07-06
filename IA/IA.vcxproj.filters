@@ -19,6 +19,30 @@
     <Filter Include="Fichiers d%27en-tête\Extractors">
       <UniqueIdentifier>{55ef9c61-6f51-4c5c-8cf3-d7f546a1dec1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Extractors\Point">
+      <UniqueIdentifier>{4bc11412-2a0e-4cac-9e0a-0c3a2e662f29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Extractors\Value">
+      <UniqueIdentifier>{acea1a98-43cd-4ce3-b600-e648b9212203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Extractors\Point">
+      <UniqueIdentifier>{2da0cb84-86db-46f8-892a-b121f3029daa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Extractors\Value">
+      <UniqueIdentifier>{8310b2cf-a5cc-436f-8cb6-0e8367b0e047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Extractors\Unit">
+      <UniqueIdentifier>{a096e152-9b17-47c4-8515-6af110f297b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Extractors\Unit">
+      <UniqueIdentifier>{35337555-5765-49f5-9a68-37f7ec231856}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Extractors\Set">
+      <UniqueIdentifier>{932cbfa6-f0cb-4e93-9c96-7d0840ced8a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Extractors\Set">
+      <UniqueIdentifier>{e176cdbe-2b52-4273-875f-5abccf7ae712}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AI.cpp">
@@ -45,39 +69,60 @@
     <ClCompile Include="Extractor.cpp">
       <Filter>Fichiers sources\Extractors</Filter>
     </ClCompile>
-    <ClCompile Include="ExtractorU.cpp">
-      <Filter>Fichiers sources\Extractors</Filter>
-    </ClCompile>
-    <ClCompile Include="ExtractorA.cpp">
-      <Filter>Fichiers sources\Extractors</Filter>
-    </ClCompile>
-    <ClCompile Include="ExtractorO.cpp">
-      <Filter>Fichiers sources\Extractors</Filter>
-    </ClCompile>
-    <ClCompile Include="ExtractorP.cpp">
-      <Filter>Fichiers sources\Extractors</Filter>
-    </ClCompile>
     <ClCompile Include="ExtractorC.cpp">
-      <Filter>Fichiers sources\Extractors</Filter>
+      <Filter>Fichiers sources\Extractors\Value</Filter>
     </ClCompile>
     <ClCompile Include="ExtractorD.cpp">
-      <Filter>Fichiers sources\Extractors</Filter>
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorM.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="Extractor_m.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="Extractor_a.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="Extractor_mD.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="Extractor_aD.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorMD.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorP.cpp">
+      <Filter>Fichiers sources\Extractors\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorB.cpp">
+      <Filter>Fichiers sources\Extractors\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorU.cpp">
+      <Filter>Fichiers sources\Extractors\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorLD.cpp">
+      <Filter>Fichiers sources\Extractors\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorL.cpp">
+      <Filter>Fichiers sources\Extractors\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorHD.cpp">
+      <Filter>Fichiers sources\Extractors\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorH.cpp">
+      <Filter>Fichiers sources\Extractors\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorA.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorO.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Extractor.h">
-      <Filter>Fichiers d%27en-tête\Extractors</Filter>
-    </ClInclude>
-    <ClInclude Include="ExtractorA.h">
-      <Filter>Fichiers d%27en-tête\Extractors</Filter>
-    </ClInclude>
-    <ClInclude Include="ExtractorO.h">
-      <Filter>Fichiers d%27en-tête\Extractors</Filter>
-    </ClInclude>
-    <ClInclude Include="ExtractorP.h">
-      <Filter>Fichiers d%27en-tête\Extractors</Filter>
-    </ClInclude>
-    <ClInclude Include="ExtractorU.h">
       <Filter>Fichiers d%27en-tête\Extractors</Filter>
     </ClInclude>
     <ClInclude Include="AI.hpp">
@@ -138,10 +183,55 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="ExtractorC.h">
-      <Filter>Fichiers d%27en-tête\Extractors</Filter>
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
     </ClInclude>
     <ClInclude Include="ExtractorD.h">
-      <Filter>Fichiers d%27en-tête\Extractors</Filter>
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorM.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="Extractor_mD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="Extractor_aD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorMD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="Extractor_m.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="Extractor_a.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorP.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorB.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorU.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorLD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorL.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorHD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorH.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorA.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorO.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

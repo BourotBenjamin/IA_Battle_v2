@@ -12,7 +12,14 @@ ExtractorH::~ExtractorH()
 
 Unit ExtractorH::get(Unit& unit, Army& allies, Army& oponents)
 {
-	return extractorArmy->get(unit, allies, oponents).getHigestUnit(capacity);
+	float max = -1;
+	std::shared_ptr<Unit> best = nullptr;
+	for each(auto& u in extractorArmy->get(unit, allies, oponents))
+	{
+		if (u->getCapacity(capacity)->getLevel() > max)
+			best = u;
+	}
+	return (*best);
 }
 
 std::string ExtractorH::getCode()

@@ -8,7 +8,7 @@ public:
 	Unit get(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
 private:
-	Extractor<Army>* extractorArmy;
+	Extractor<std::vector<std::shared_ptr<Unit>>>* extractorArmy;
 	int capacity;
 };
 

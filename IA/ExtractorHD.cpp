@@ -12,7 +12,16 @@ ExtractorHD::~ExtractorHD()
 
 Unit ExtractorHD::get(Unit& unit, Army& allies, Army& oponents)
 {
-	return extractorArmy->get(unit, allies, oponents).getFurthestUnit(extractorPoint->get(unit, allies, oponents));
+	float max = -1;
+	std::shared_ptr<Unit> furthest = nullptr;
+	Point p = extractorPoint->get(unit, allies, oponents);
+	for each(auto& u in extractorArmy->get(unit, allies, oponents))
+	{
+		float dist = u->getPosition().distance(p);
+		if (dist > max)
+			furthest = u;
+	}
+	return (*furthest);
 }
 
 std::string ExtractorHD::getCode()

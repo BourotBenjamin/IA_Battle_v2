@@ -10,9 +10,9 @@ ExtractorA::~ExtractorA()
 {
 }
 
-Army ExtractorA::get(Unit& unit, Army& allies, Army& oponents)
+std::vector<std::shared_ptr<Unit>> ExtractorA::get(Unit& unit, Army& allies, Army& oponents)
 {
-	return allies;
+	return allies.getUnitsList();
 }
 
 std::string ExtractorA::getCode()

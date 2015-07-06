@@ -1,12 +1,11 @@
 #pragma once
 #include "Extractor.h"
-class ExtractorO :
-	public Extractor<Army>
+class ExtractorO : public Extractor<std::vector<std::shared_ptr<Unit>>>
 {
 public:
 	ExtractorO();
 	~ExtractorO();
-	Army get(Unit& unit, Army& allies, Army& oponents);
+	std::vector<std::shared_ptr<Unit>> get(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
 };
 
