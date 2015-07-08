@@ -18,6 +18,7 @@
     <ClCompile Include="Extractor.cpp" />
     <ClCompile Include="ExtractorA.cpp" />
     <ClCompile Include="ExtractorC.cpp" />
+    <ClCompile Include="ExtractorConstructor.cpp" />
     <ClCompile Include="ExtractorD.cpp" />
     <ClCompile Include="ExtractorH.cpp" />
     <ClCompile Include="ExtractorHD.cpp" />
@@ -58,6 +59,7 @@
     <ClInclude Include="Extractor.h" />
     <ClInclude Include="ExtractorA.h" />
     <ClInclude Include="ExtractorC.h" />
+    <ClInclude Include="ExtractorConstructor.h" />
     <ClInclude Include="ExtractorD.h" />
     <ClInclude Include="ExtractorH.h" />
     <ClInclude Include="ExtractorHD.h" />

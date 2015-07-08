@@ -4,7 +4,7 @@ class ExtractorP :
 	public Extractor<Point>
 {
 public:
-	ExtractorP();
+	ExtractorP(std::string* code);
 	~ExtractorP();
 	Point& get(Unit& unit, Army& allies, Army& oponents);
 	std::string ExtractorP::getCode();

@@ -1,8 +1,9 @@
 #include "ExtractorP.h"
 
 
-ExtractorP::ExtractorP()
+ExtractorP::ExtractorP(std::string* code)
 {
+	extractorUnit = (Extractor<Unit>*) ExtractorConstructor::create(code);
 }
 
 

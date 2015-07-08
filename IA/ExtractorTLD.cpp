@@ -1,8 +1,16 @@
 #include "ExtractorTLD.h"
 
 
-ExtractorTLD::ExtractorTLD()
+ExtractorTLD::ExtractorTLD(std::string* code)
 {
+	std::regex regex("([0-9]+)*+");
+	std::smatch base_match;
+	std::regex_match(*code, base_match, regex);
+	std::string seuil_str = base_match[1].str();
+	seuil = std::stoi(seuil_str);
+	*code = std::string(code->begin() + seuil_str.length(), code->end());
+	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
+	extractorPoint = (Extractor<Point>*) ExtractorConstructor::create(code);
 }
 
 
@@ -10,11 +18,11 @@ ExtractorTLD::~ExtractorTLD()
 {
 }
 
-std::vector<std::shared_ptr<Unit>>& ExtractorTLD::get(Unit& unit, Army& allies, Army& oponents)
+UnitSet& ExtractorTLD::get(Unit& unit, Army& allies, Army& oponents)
 {
-	std::vector<std::shared_ptr<Unit>> units = extractorArmy->get(unit, allies, oponents);
+	UnitSet units = extractorArmy->get(unit, allies, oponents);
 	Point p = extractorPoint->get(unit, allies, oponents);
-	std::vector<std::shared_ptr<Unit>> vector;
+	UnitSet vector;
 	for each(auto& u in units)
 	{
 		if (u->getPosition().distance(p) < seuil)

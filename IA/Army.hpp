@@ -13,7 +13,7 @@
 class Army {
 private:
     //vector storing the units
-    std::vector<std::shared_ptr<Unit> > units_;
+    UnitSet units_;
 
     //Method for deep copying the units vector
 	void copyUnits_(const std::vector<std::shared_ptr<Unit> >& units);
@@ -36,7 +36,7 @@ public:
     Army& operator=(Army army);
 
     //Getter fot the units list
-	std::vector<std::shared_ptr<Unit> >& getUnitsList()
+	UnitSet& getUnitsList()
     {
         return units_;
     }

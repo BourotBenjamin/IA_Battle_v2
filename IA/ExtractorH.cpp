@@ -1,8 +1,10 @@
 #include "ExtractorH.h"
 
 
-ExtractorH::ExtractorH()
+ExtractorH::ExtractorH(char capacity_index, std::string* code)
 {
+	capacity = capacity_index - '0';
+	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
 }
 
 

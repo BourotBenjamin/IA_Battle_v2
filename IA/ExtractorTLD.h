@@ -1,16 +1,16 @@
 #pragma once
 #include "Extractor.h"
 class ExtractorTLD :
-	public Extractor<std::vector<std::shared_ptr<Unit>>>
+	public Extractor<UnitSet>
 {
 public:
-	ExtractorTLD();
+	ExtractorTLD(std::string* code);
 	~ExtractorTLD();
-	std::vector<std::shared_ptr<Unit>>& get(Unit& unit, Army& allies, Army& oponents);
+	UnitSet& get(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
 private:
 	Extractor<Point>* extractorPoint;
-	Extractor<std::vector<std::shared_ptr<Unit>>>* extractorArmy;
+	Extractor<UnitSet>* extractorArmy;
 	int seuil;
 };
 

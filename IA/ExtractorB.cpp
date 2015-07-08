@@ -1,8 +1,9 @@
 #include "ExtractorB.h"
 
 
-ExtractorB::ExtractorB()
+ExtractorB::ExtractorB(std::string* code)
 {
+	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
 }
 
 

@@ -1,8 +1,10 @@
 #include "ExtractorLD.h"
 
 
-ExtractorLD::ExtractorLD()
+ExtractorLD::ExtractorLD(std::string* code)
 {
+	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
+	extractorPoint = (Extractor<Point>*) ExtractorConstructor::create(code);
 }
 
 

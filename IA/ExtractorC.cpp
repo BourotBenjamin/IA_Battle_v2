@@ -1,8 +1,9 @@
 #include "ExtractorC.h"
 
 
-ExtractorC::ExtractorC()
+ExtractorC::ExtractorC(std::string* code)
 {
+	extractorUnit = (Extractor<Unit>*) ExtractorConstructor::create(code);
 }
 
 
@@ -10,9 +11,9 @@ ExtractorC::~ExtractorC()
 {
 }
 
-float& ExtractorC::get(Unit& unit, Army& allies, Army& oponents)
+double& ExtractorC::get(Unit& unit, Army& allies, Army& oponents)
 {
-	float c = extractorUnit->get(unit, allies, oponents).getCapacity(capacity)->getValue();
+	double c = extractorUnit->get(unit, allies, oponents).getCapacity(capacity)->getValue();
 	return c;
 }
 

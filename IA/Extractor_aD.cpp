@@ -1,8 +1,10 @@
 #include "Extractor_aD.h"
 
 
-Extractor_aD::Extractor_aD()
+Extractor_aD::Extractor_aD(std::string* code)
 {
+	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
+	extractorPoint = (Extractor<Point>*) ExtractorConstructor::create(code);
 }
 
 
@@ -10,10 +12,10 @@ Extractor_aD::~Extractor_aD()
 {
 }
 
-float& Extractor_aD::get(Unit& unit, Army& allies, Army& oponents)
+double& Extractor_aD::get(Unit& unit, Army& allies, Army& oponents)
 {
 	int nb_unit = 0;
-	float sum = 0;
+	double sum = 0;
 	Point p = extractorPoint->get(unit, allies, oponents);
 	for each(auto& u in extractorArmy->get(unit, allies, oponents))
 	{

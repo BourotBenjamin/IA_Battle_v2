@@ -1,14 +1,14 @@
 #pragma once
 #include "Extractor.h"
-class ExtractorTH :	public Extractor<std::vector<std::shared_ptr<Unit>>>
+class ExtractorTH :	public Extractor<UnitSet>
 {
 public:
-	ExtractorTH();
+	ExtractorTH(char capacity_index, std::string* code);
 	~ExtractorTH();
-	std::vector<std::shared_ptr<Unit>>& get(Unit& unit, Army& allies, Army& oponents);
+	UnitSet& get(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
 private:
-	Extractor<std::vector<std::shared_ptr<Unit>>>* extractorArmy;
+	Extractor<UnitSet>* extractorArmy;
 	int seuil;
 	int capacity;
 };

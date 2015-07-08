@@ -47,7 +47,7 @@ Unit& Army::getNearestUnit(const Point& p)
 {
     if(units_.empty())throw std::invalid_argument("empty army");
     Unit* result = nullptr;
-    float minDist = std::numeric_limits<float>::max();
+    float minDist = std::numeric_limits<double>::max();
     for(auto it = units_.begin(); it != units_.end(); ++it) {
         float d = (*it)->getPosition().distance(p);
         if(d < minDist) {

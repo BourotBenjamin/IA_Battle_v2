@@ -144,6 +144,9 @@
     <ClCompile Include="ExtractorTL.cpp">
       <Filter>Fichiers sources\Extractors\Set</Filter>
     </ClCompile>
+    <ClCompile Include="ExtractorConstructor.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Extractor.h">
@@ -280,6 +283,9 @@
     </ClInclude>
     <ClInclude Include="ExtractorTL.h">
       <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorConstructor.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,8 +1,10 @@
 #include "ExtractorM.h"
 
 
-ExtractorM::ExtractorM()
+ExtractorM::ExtractorM(char capacity_index, std::string* code)
 {
+	capacity = capacity_index - '0';
+	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
 }
 
 
@@ -10,9 +12,9 @@ ExtractorM::~ExtractorM()
 {
 }
 
-float& ExtractorM::get(Unit& unit, Army& allies, Army& oponents)
+double& ExtractorM::get(Unit& unit, Army& allies, Army& oponents)
 {
-	float max = -1;
+	double max = -1;
 	for each(auto& u in extractorArmy->get(unit, allies, oponents))
 	{
 		if (u->getCapacity(capacity)->getValue() > max)

@@ -1,8 +1,10 @@
 #include "ExtractorHD.h"
 
 
-ExtractorHD::ExtractorHD()
+ExtractorHD::ExtractorHD(std::string* code)
 {
+	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
+	extractorPoint = (Extractor<Point>*) ExtractorConstructor::create(code);
 }
 
 

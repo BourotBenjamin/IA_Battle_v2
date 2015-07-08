@@ -1,8 +1,10 @@
 #include "Extractor_mD.h"
 
 
-Extractor_mD::Extractor_mD()
+Extractor_mD::Extractor_mD(std::string* code)
 {
+	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
+	extractorPoint = (Extractor<Point>*) ExtractorConstructor::create(code);
 }
 
 
@@ -10,9 +12,9 @@ Extractor_mD::~Extractor_mD()
 {
 }
 
-float& Extractor_mD::get(Unit& unit, Army& allies, Army& oponents)
+double& Extractor_mD::get(Unit& unit, Army& allies, Army& oponents)
 {
-	float min = FLT_MAX;
+	double min = DBL_MAX;
 	Point p = extractorPoint->get(unit, allies, oponents);
 	for each(auto& u in extractorArmy->get(unit, allies, oponents))
 	{

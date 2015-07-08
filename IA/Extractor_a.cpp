@@ -1,19 +1,20 @@
 #include "Extractor_a.h"
 
 
-Extractor_a::Extractor_a()
+Extractor_a::Extractor_a(char capacity_index, std::string* code)
 {
+	capacity = capacity_index - '0';
+	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
 }
-
 
 Extractor_a::~Extractor_a()
 {
 }
 
-float& Extractor_a::get(Unit& unit, Army& allies, Army& oponents)
+double& Extractor_a::get(Unit& unit, Army& allies, Army& oponents)
 {
 	int nb_unit = 0;
-	float sum = 0;
+	double sum = 0;
 	for each(auto& u in extractorArmy->get(unit, allies, oponents))
 	{
 		nb_unit++;

@@ -10,7 +10,7 @@ ExtractorO::~ExtractorO()
 {
 }
 
-std::vector<std::shared_ptr<Unit>>& ExtractorO::get(Unit& unit, Army& allies, Army& oponents)
+UnitSet& ExtractorO::get(Unit& unit, Army& allies, Army& oponents)
 {
 	return oponents.getUnitsList();
 }

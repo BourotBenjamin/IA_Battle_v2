@@ -1,6 +1,9 @@
 #pragma once
 #include "Unit.hpp"
 #include "Army.hpp"
+#include "ExtractorConstructor.h"
+#include <regex>
+
 template<typename T>
 class Extractor
 {
