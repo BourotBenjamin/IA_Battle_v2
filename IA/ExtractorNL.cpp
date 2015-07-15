@@ -4,7 +4,7 @@
 ExtractorNL::ExtractorNL(char capacity_index, std::string* code)
 {
 	capacity = capacity_index - '0';
-	std::regex regex("([0-9]+)*+");
+	std::regex regex("([0-9]+).+");
 	std::smatch base_match;
 	std::regex_match(*code, base_match, regex);
 	std::string nb_entity_str = base_match[1].str();
