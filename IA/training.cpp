@@ -53,13 +53,13 @@ std::unique_ptr<Army> train(int iterations, int threshold, int populationSize, i
         for(auto itA = armies.begin(); itA != armies.end(); ++itA) {
 
             for(auto itB = itA+1; itB != armies.end(); ++itB){
-            	int sA, sB;
+            	int sA, sB=0;
             	fight(*(itA->army), *(itB->army), sA, sB,renderer);
             	itA->score += sA;
             	itB->score += sB;
             }
             for(auto itC = champions.begin(); itC != champions.end(); ++itC) {
-                int sA, sC;
+                int sA, sC=0;
 				fight(*(itA->army), **itC, sA, sC, renderer);
                 itA->score += sA*championsBonus;
                 itA->score -= (sC*championsBonus)/2;

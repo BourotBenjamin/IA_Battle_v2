@@ -1,9 +1,11 @@
 #include "OpenGLRenderer.h"
 
+#include "battle.hpp"
+
 Point lastPoint;
 OpenGLRenderer* g_currentInstance;
+std::vector<virtualOpenGl*> OpenGLRenderer::elementToDraw = std::vector<virtualOpenGl*>();
 int previousTime = 0;
-
 
 void _drawCallback()
 {
@@ -50,7 +52,6 @@ OpenGLRenderer::OpenGLRenderer(int argc, char* argv[])
 
 	g_currentInstance = this;
 	//
-	glutIdleFunc(_idleCallback);
 	glutMouseWheelFunc(_mouseWheelCallback);
 	glutMouseFunc(_mouseCallback);
 	glutMotionFunc(_motionCallback);
@@ -58,9 +59,12 @@ OpenGLRenderer::OpenGLRenderer(int argc, char* argv[])
 	glutKeyboardFunc(_keypressCallback);
 }
 
-void OpenGLRenderer::StartDisplay(battleParameter &parameter)
+void OpenGLRenderer::StartDisplay(BattleParameter* parameter)//, std::function<void(BattleParameter*)> stepFunction)
 {
+    std::cout << "coucou" << std::endl;
 	this->instanceParameter = parameter;
+    //this->StepFunction = stepFunction;
+    glutIdleFunc(_idleCallback);
 	glutMainLoop();
 }
 
@@ -182,7 +186,8 @@ void OpenGLRenderer::IdleHandler()
 	if (isPaused)
 		return;
 	std::cout << "execute step" << std::endl;
-	executeOneTurn(this->instanceParameter);
+    executeOneTurn(this->instanceParameter);
+	//this->StepFunction(this->instanceParameter);
 	if (isStepByStep)
 		isPaused = true;
 }

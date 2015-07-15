@@ -19,7 +19,6 @@ private:
     void copyUnits_(const std::vector<std::unique_ptr<Unit> >& units);
 
 public:
-
     //Constructor with parameters the number of units, and the level of each
     Army(int size, int level);
 

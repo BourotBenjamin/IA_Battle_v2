@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <iostream>
 
+
 //Struct used to manipulate a unit together with its army and its opponents
 struct UnitChoice {
     Army* army;
@@ -31,18 +32,18 @@ void fight(const Army& a, const Army& b, int& scoreA, int& scoreB,OpenGLRenderer
     AI ai;
     int turn = 1;
 
-	battleParameter parameter(myA, myB, scoreA, scoreB,log, ai,turn);
+	BattleParameter parameter(myA, myB, scoreA, scoreB, log, ai,turn);
 
-	renderer.StartDisplay(parameter);
+    renderer.StartDisplay(&parameter);//,executeOneTurn);
 }
 
-void executeOneTurn(battleParameter &parameter)
+void executeOneTurn(BattleParameter* parameter)
 {
-	Army A = parameter.myA;
-	Army B = parameter.myB;
-	if (parameter.log) {
+	Army A = parameter->myA;
+	Army B = parameter->myB;
+	if (parameter->log) {
 		std::cout << "-------------------------------" << std::endl;
-		std::cout << "Turn " << (parameter.turn) << std::endl;
+		std::cout << "Turn " << (parameter->turn) << std::endl;
 		std::cout << "-------------------------------" << std::endl;
 	}
 
@@ -61,10 +62,10 @@ void executeOneTurn(battleParameter &parameter)
 
 	for (auto it = order.begin(); it != order.end(); it++) {
 		try {
-			if (parameter.log)std::cout << "Unit#" << it->unitId << " (Army " << ((it->army) == &A ? "A" : "B") << ") : ";
+			if (parameter->log)std::cout << "Unit#" << it->unitId << " (Army " << ((it->army) == &A ? "A" : "B") << ") : ";
 			Unit& unit = it->army->getUnit(it->unitId);
-			std::unique_ptr<Action> action = parameter.ai(unit, *(it->army), *(it->opponents));
-			action->execute(parameter.log);
+			std::unique_ptr<Action> action = parameter->ai(unit, *(it->army), *(it->opponents));
+			action->execute(parameter->log);
 			it->opponents->purge();
 		}
 		catch (std::invalid_argument e) {
@@ -74,14 +75,14 @@ void executeOneTurn(battleParameter &parameter)
 		}
 	}
 
-	parameter.myA = A;
-	parameter.myB = B;
+	parameter->myA = A;
+	parameter->myB = B;
 
-	if (A.size() <= 0 || B.size() <= 0 || parameter.turn++ >= 10000)
-		endBattle(parameter);
+	if (A.size() <= 0 || B.size() <= 0 || parameter->turn++ >= 10000)
+		endBattle(*parameter);
 }
 
-void endBattle(battleParameter parameter)
+void endBattle(BattleParameter parameter)
 {
 	if (parameter.log) {
 		if (parameter.myA.size() == 0) {

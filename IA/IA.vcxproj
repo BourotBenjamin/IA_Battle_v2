@@ -14,6 +14,7 @@
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="Army.cpp" />
     <ClCompile Include="battle.cpp" />
+    <ClCompile Include="BattleParameter.cpp" />
     <ClCompile Include="common\EsgiShader.cpp" />
     <ClCompile Include="Extractor.cpp" />
     <ClCompile Include="ExtractorA.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="ArmorCapacity.hpp" />
     <ClInclude Include="Army.hpp" />
     <ClInclude Include="battle.hpp" />
+    <ClInclude Include="BattleParameter.h" />
     <ClInclude Include="Capacity.hpp" />
     <ClInclude Include="common\EsgiShader.h" />
     <ClInclude Include="DamageCapacity.hpp" />
@@ -92,11 +94,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\Libs;..\Libs\glew-1.12.0\include;..\Libs\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Libs\freeglut\include;..\Libs\glew-1.12.0\include;..\Libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\Libs\freeglut\lib;..\Libs\glew-1.12.0\lib\Release\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Libs\freeglut\lib;..\Libs\glew-1.12.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -106,11 +108,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\Libs\freeglut\include;..\Libs\glew-1.12.0\include;..\Libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\Libs\freeglut\lib;..\Libs\glew-1.12.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
