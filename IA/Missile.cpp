@@ -15,8 +15,6 @@ Missile::Missile(Point startPos, Point endPos) : currentPosition(startPos), targ
     glGenBuffers(1, &missileEBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, missileEBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned short) * 3 * 12, g_missileIndices, GL_STATIC_DRAW);
-
-    OpenGLRenderer::AddElementToDraw(this);
 }
 
 void Missile::draw(GLuint program)
@@ -30,11 +28,14 @@ void Missile::draw(GLuint program)
     GLint colorLocation = glGetUniformLocation(program, "u_color");
     glUniform4f(colorLocation, this->color.RedValue, this->color.GreenValue, this->color.BlueValue, 1.0f);
 
-    if (this->isAnimating)
+    if (this->isAnimating && !this->BlockAnimation)
     {
         this->currentPosition.moveTo(this->targetPosition, 0.01f);
         if (currentPosition == targetPosition)
+        {
             this->isAnimating = false;
+            this->canBeDestroy = true;
+        }
     }
 
     GLint offsetLocation = glGetUniformLocation(program, "u_offset");
@@ -49,6 +50,4 @@ void Missile::draw(GLuint program)
 
 Missile::~Missile()
 {
-    std::cout << "missile destroy" << std::endl;
-    OpenGLRenderer::RemoveElementToDraw(this);
 }

@@ -228,7 +228,7 @@ void Unit::draw(GLuint program)
     GLint colorLocation = glGetUniformLocation(program, "u_color");
     glUniform4f(colorLocation, this->myColor.RedValue, this->myColor.GreenValue, this->myColor.BlueValue, 1.0f);
 
-    if (this->isAnimating)
+    if (this->isAnimating && !this->BlockAnimation)
     {
         this->moveToPosition(this->NextPosition_,0.01f);
         consumeSpeed += 0.01f;

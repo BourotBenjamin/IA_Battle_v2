@@ -134,11 +134,27 @@ void OpenGLRenderer::Render()
 
     mustRedisplay=false;
 
-	for (auto element : this->elementToDraw)
+    std::vector<virtualOpenGl*> listAttack = GetAnimatedElementForState(State::Attack);
+    std::vector<virtualOpenGl*> listMove = GetAnimatedElementForState(State::Move);
+    if (listAttack.size() < 1)
+    {
+        for (auto element : listMove)
+            element->BlockAnimation = false;
+    }
+    else{
+        for (auto element : listMove)
+            element->BlockAnimation = true;
+    }
+
+    for (auto element : this->elementToDraw)
 	{
 		element->draw(program);
-        if (element->isAnimating)
+        if (!mustRedisplay && element->isAnimating)
             mustRedisplay = true;
+        if (element->MustBeDestroy())
+        {
+            this->RemoveElementToDraw(element);
+        }
 	}
 
 	glUseProgram(0);
@@ -147,6 +163,17 @@ void OpenGLRenderer::Render()
 
     if (mustRedisplay)
         glutPostRedisplay();
+}
+
+std::vector<virtualOpenGl*> OpenGLRenderer::GetAnimatedElementForState(State selectedState)
+{
+    std::vector<virtualOpenGl*> tmp;
+    for (auto element : this->elementToDraw)
+    {
+        if (element->AnimationState == selectedState && element->isAnimating)
+            tmp.push_back(element);
+    }
+    return tmp;
 }
 
 void OpenGLRenderer::MouseHandler(int button, int state, int x, int y)

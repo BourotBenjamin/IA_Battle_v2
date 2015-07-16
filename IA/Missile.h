@@ -1,9 +1,10 @@
 #pragma once
 #ifndef _MISSILE_HPP_
 #define _MISSILE_HPP_
-#include "CustomColor.h"
-#include "OpenGLRenderer.h"
+//#include "OpenGLRenderer.h"
 #include "virtualOpenGL.h"
+
+#include "CustomColor.h"
 #include "Point.hpp"
 #include "missileEBO.h"
 
@@ -22,4 +23,3 @@ private:
     GLuint missileVBO;
 };
 #endif
-

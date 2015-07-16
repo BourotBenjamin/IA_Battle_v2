@@ -24,7 +24,8 @@ public:
         opponent_->takeDamage(unit_->getDamage().getValue());
         if (unit_->shoot())
         {
-            //unit_->missile = Missile(unit_->getPosition(), opponent_->getPosition());
+            unit_->missile = Missile(unit_->getPosition(), opponent_->getPosition());
+            OpenGLRenderer::AddElementToDraw(&unit_->missile);
         }
         if(log) {
             std::cout<<"Unit "<<unit_->getId()<<" shoot Unit "<<opponent_->getId();
