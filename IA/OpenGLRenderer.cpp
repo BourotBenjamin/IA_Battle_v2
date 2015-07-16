@@ -62,7 +62,7 @@ OpenGLRenderer::OpenGLRenderer(int argc, char* argv[])
 void OpenGLRenderer::StartDisplay(BattleParameter* parameter)//, std::function<void(BattleParameter*)> stepFunction)
 {
     std::cout << "coucou" << std::endl;
-	this->instanceParameter = parameter;
+    g_currentInstance->instanceParameter = parameter;
     //this->StepFunction = stepFunction;
     glutIdleFunc(_idleCallback);
 	glutMainLoop();
@@ -186,7 +186,7 @@ void OpenGLRenderer::IdleHandler()
 	if (isPaused)
 		return;
 	std::cout << "execute step" << std::endl;
-    executeOneTurn(this->instanceParameter);
+    executeOneTurn(*g_currentInstance->instanceParameter);
 	//this->StepFunction(this->instanceParameter);
 	if (isStepByStep)
 		isPaused = true;

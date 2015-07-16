@@ -36,6 +36,5 @@ private:
 	bool isPaused=false;
 	bool isStepByStep=false;
 	BattleParameter* instanceParameter;
-    //std::function<void(BattleParameter*)> StepFunction;
 };
 

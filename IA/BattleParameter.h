@@ -7,8 +7,8 @@ class BattleParameter
 public:
     Army myA;
     Army myB;
-    int& scoreA;
-    int& scoreB;
+    int scoreA;
+    int scoreB;
     bool log;
     AI ai;
     int turn;
@@ -22,8 +22,9 @@ public:
         this->ai = p.ai;
         this->turn = p.turn;
     }
-    BattleParameter(Army& A, Army& B, int& scoreA, int& scoreB, bool log, AI ai, int turn) :
+    BattleParameter(){}
+    BattleParameter(Army A, Army B, int& scoreA, int& scoreB, bool log, AI ai, int turn) :
         myA(A), myB(B), scoreA(scoreA), scoreB(scoreB), log(log), ai(ai), turn(turn){}
-    ~BattleParameter();
+    ~BattleParameter(){}
 };
 
