@@ -16,6 +16,7 @@
     <ClCompile Include="battle.cpp" />
     <ClCompile Include="BattleParameter.cpp" />
     <ClCompile Include="common\EsgiShader.cpp" />
+    <ClCompile Include="CustomColor.cpp" />
     <ClCompile Include="Extractor.cpp" />
     <ClCompile Include="ExtractorA.cpp" />
     <ClCompile Include="ExtractorO.cpp" />
@@ -37,6 +38,8 @@
     <ClInclude Include="BattleParameter.h" />
     <ClInclude Include="Capacity.hpp" />
     <ClInclude Include="common\EsgiShader.h" />
+    <ClInclude Include="cube.h" />
+    <ClInclude Include="CustomColor.h" />
     <ClInclude Include="DamageCapacity.hpp" />
     <ClInclude Include="EmptyAction.hpp" />
     <ClInclude Include="Extractor.h" />

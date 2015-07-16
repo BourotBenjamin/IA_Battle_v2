@@ -19,10 +19,13 @@
 #include "ArmorCapacity.hpp"
 #include "Point.hpp"
 
-
+#include "OpenGLInclude.h"
+#include "virtualOpenGL.h"
+#include "CustomColor.h"
+#include "cube.h"
 
 //Class representing a unit, i.e. element of an army
-class Unit {
+class Unit : public virtualOpenGl{
 
 private:
 
@@ -42,11 +45,19 @@ private:
     //position of the unit
     Point position_;
 
+    //for animation
+    Point NextPosition_;
+
 
     //Method in charge of the initialization of id, position(random), and capacities
     void init_();
 
+    GLuint cubeVBO;
+    GLuint cubeEBO;
+
 public:
+
+    float consumeSpeed = 0.0f;
 
     //Constructor : global level will be randomly dispatched among the capacities
     Unit(int globalLevel);
@@ -138,6 +149,8 @@ public:
         return position_;
     }
 
+    void setNextPosition(Point nextPos) { this->NextPosition_ = nextPos; }
+
     //Change the position of the unit by replacing the existing one
     void setPosition(const Point& position)
     {
@@ -149,6 +162,11 @@ public:
     void moveToPosition(const Point& position)
     {
         position_.moveTo(position, getSpeed().getValue());
+    }
+
+    void moveToPosition(const Point& position, float speedValue)
+    {
+        position_.moveTo(position, speedValue);
     }
 
     //Provide the global level of the unit (I.E. the sum of all capacities levels)
@@ -185,7 +203,9 @@ public:
     //Load a unit from the input stream
     static Unit load(std::istream& in);
 
-
+    CustomColor myColor;
+    void Unit::InitializeOpenGL();
+    void draw(GLuint program);
 };
 
 //Shift operator overloading, printing the unit in the output stream.

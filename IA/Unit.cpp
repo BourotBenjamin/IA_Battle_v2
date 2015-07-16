@@ -23,6 +23,18 @@ void Unit::init_()
     this->capacities_.push_back(std::unique_ptr<Capacity>(new FirerateCapacity()));
 }
 
+void Unit::InitializeOpenGL()
+{
+
+    glGenBuffers(1, &cubeVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * 8, g_cubeVertices, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+    glGenBuffers(1, &cubeEBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, cubeEBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned short) * 3 * 12, g_cubeIndices, GL_STATIC_DRAW);
+}
 
 //Constructor : global level will be randomly dispatched among the capacities
 Unit::Unit(int globalLevel)
@@ -201,4 +213,32 @@ Unit Unit::load(std::istream& in)
     });
     in >> iacode;
     return Unit(iacode, levels);
+}
+
+void Unit::draw(GLuint program)
+{
+    glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
+
+    GLint positionLocation = glGetAttribLocation(program, "a_position");
+    glEnableVertexAttribArray(positionLocation);
+    glVertexAttribPointer(positionLocation, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
+
+    GLint colorLocation = glGetUniformLocation(program, "u_color");
+    glUniform4f(colorLocation, this->myColor.RedValue, this->myColor.GreenValue, this->myColor.BlueValue, 1.0f);
+
+    if (this->isAnimating)
+    {
+        this->moveToPosition(this->NextPosition_,0.01f);
+        consumeSpeed += 0.01f;
+        if (consumeSpeed >= this->getSpeed().getValue())
+            this->isAnimating = false;
+    }
+
+    GLint offsetLocation = glGetUniformLocation(program, "u_offset");
+    glUniform3f(offsetLocation, this->position_.getX(), this->position_.getY(), 0.0f);
+
+    glDrawArrays(GL_TRIANGLES, 0, 4);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, cubeEBO);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, nullptr);
 }

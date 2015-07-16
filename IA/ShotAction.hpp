@@ -4,6 +4,8 @@
 #include "Action.hpp"
 #include <iomanip>
 #include <iostream>
+#include "OpenGLRenderer.h"
+
 //Class representing the action of attacking one unit with another
 class ShotAction : public Action {
 private:
@@ -26,6 +28,7 @@ public:
             if(hp>0) {
                 std::cout<<" ("<<hp<<"hp remaining)"<<std::endl;
             } else {
+                OpenGLRenderer::RemoveElementToDraw(opponent_);
                 std::cout<<" (dead !)"<<std::endl;
             }
         }

@@ -1,5 +1,7 @@
 
 attribute vec4 a_position;
+uniform vec3 u_offset;
+uniform vec4 u_color;
 
 uniform mat4 u_projectionMatrix;
 uniform mat4 u_viewMatrix;
@@ -14,12 +16,13 @@ const vec3 c_lightDirection = vec3(1.0, 1.0, 0.0);
 
 void main(void)
 {
-	gl_Position = u_projectionMatrix * u_viewMatrix * u_worldMatrix * a_position;
+	gl_Position = u_projectionMatrix * u_viewMatrix * u_worldMatrix * (a_position + vec4(u_offset, 0.0));
 
 	vec3 normal = a_position.xyz;
 	normal = normalize(normal);
 	normal = mat3(u_worldMatrix) * normal;
 	v_normal = normal;
 
-	v_color = vec4(1.0, 0.0, 0.0, 1.0);
+	v_color = u_color;
+	//v_color = vec4(1.0, 0.0, 0.0, 1.0);
 }

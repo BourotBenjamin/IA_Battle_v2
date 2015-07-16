@@ -5,11 +5,13 @@ int Terrain::MAX_Y;
 
 void Terrain::Initialize()
 {
+    myColor = CustomColor(0.0f, 1.0f, 0.0f);
+
 	static const float g_Triangle[] = {
-		-MAX_X, -MAX_Y, 1.0f,		// 0
-		MAX_X, -MAX_Y, 1.0f,  		// 1	
-		 MAX_X,  MAX_Y, 1.0f,		// 2
-		-MAX_X, MAX_Y, 1.0f		// 3
+		-MAX_X-1, -MAX_Y-1, -1.0f,		// 0
+		MAX_X+1, -MAX_Y-1, -1.0f,  		// 1	
+		 MAX_X+1,  MAX_Y+1, -1.0f,		// 2
+		-MAX_X-1, MAX_Y+1, -1.0f		// 3
 	};
 
 	glGenBuffers(1, &terrainVBO);
@@ -54,6 +56,12 @@ void Terrain::draw(GLuint program)
 	GLint positionLocation = glGetAttribLocation(program, "a_position");
 	glEnableVertexAttribArray(positionLocation);
 	glVertexAttribPointer(positionLocation, 3, GL_FLOAT, GL_FALSE, sizeof(float)* 3, 0);
+
+    GLint colorLocation = glGetUniformLocation(program, "u_color");
+    glUniform4f(colorLocation, this->myColor.RedValue, this->myColor.GreenValue, this->myColor.BlueValue, 1.0f);
+
+    GLint offsetLocation = glGetUniformLocation(program, "u_offset");
+    glUniform3f(offsetLocation, 0.0f, 0.0f, 0.0f);
 
 	glDrawArrays(GL_TRIANGLES, 0, 4);
 

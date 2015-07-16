@@ -24,7 +24,13 @@ public:
     void execute(bool log = false)
     {
         if(log)std::cout<<"Unit "<<unit_->getId()<<" move from "<<unit_->getPosition();
-        unit_->moveToPosition(position_);
+        if (unit_->getPosition() != position_)
+        {
+            unit_->isAnimating = true;
+            unit_->setNextPosition(position_);
+            unit_->consumeSpeed = 0.0f;
+        }
+        //unit_->moveToPosition(position_);
         if(log)std::cout<<" to "<<unit_->getPosition()<<std::endl;
     }
 };

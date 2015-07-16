@@ -8,7 +8,6 @@
 #include <iostream>
 #include <ostream>
 
-
 //Class representing an army, i.e. a set of units
 class Army {
 private:
@@ -19,7 +18,6 @@ private:
     void copyUnits_(const std::vector<std::unique_ptr<Unit> >& units);
 
 public:
-    Army(){}
     //Constructor with parameters the number of units, and the level of each
     Army(int size, int level);
 
@@ -89,7 +87,8 @@ public:
     //Load an army from the input stream
     static Army load(std::istream& in);
 
-
+    CustomColor ArmyColor;
+    void AddDrawableUnit();
 };
 
 //Shift operator overloading, printing the unit in the output stream.

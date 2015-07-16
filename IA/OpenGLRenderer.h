@@ -20,8 +20,9 @@ public:
 	void KeyBoardHandler(unsigned char key, int x, int y);
 	void MouseWheelHandler(int button, int dir, int x, int y);
 	void IdleHandler();
-    void StartDisplay(BattleParameter* parameter);
-	static void AddElementToDraw(virtualOpenGl* element) { elementToDraw.push_back(element); }
+    static void StartDisplay(BattleParameter* parameter);
+    static void AddElementToDraw(virtualOpenGl* element) { elementToDraw.push_back(element); }
+    static void RemoveElementToDraw(virtualOpenGl* element);
 	~OpenGLRenderer();
 private:
 	void Initialize();
@@ -34,7 +35,8 @@ private:
 	float depth = -7.0f;
 	bool dragAction;
 	bool isPaused=false;
-	bool isStepByStep=false;
+	bool isStepByStep=true;
 	BattleParameter* instanceParameter;
+    bool mustRedisplay;
 };
 

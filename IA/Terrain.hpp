@@ -1,6 +1,7 @@
 #pragma once
 #include "Point.hpp"
 #include "virtualOpenGL.h"
+#include "CustomColor.h"
 
 class Terrain : public virtualOpenGl
 {
@@ -19,4 +20,5 @@ private:
 	static int MAX_Y;
 	GLuint terrainVBO;
 	GLuint terrainEBO;
+    CustomColor myColor;
 };

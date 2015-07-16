@@ -47,20 +47,22 @@ std::unique_ptr<Army> train(int iterations, int threshold, int populationSize, i
     });
 
     //start the training
-	OpenGLRenderer renderer(0, 0);
     while(iterations--) {
         //tornament of all armies
         for(auto itA = armies.begin(); itA != armies.end(); ++itA) {
 
             for(auto itB = itA+1; itB != armies.end(); ++itB){
+                itA->army->ArmyColor = CustomColor(0.0f, 0, 1.0f);
+                itB->army->ArmyColor = CustomColor(1.0f, 0.0f, 0);
+
             	int sA, sB=0;
-            	fight(*(itA->army), *(itB->army), sA, sB,renderer);
+            	fight(*(itA->army), *(itB->army), sA, sB);
             	itA->score += sA;
             	itB->score += sB;
             }
             for(auto itC = champions.begin(); itC != champions.end(); ++itC) {
                 int sA, sC=0;
-				fight(*(itA->army), **itC, sA, sC, renderer);
+				fight(*(itA->army), **itC, sA, sC);
                 itA->score += sA*championsBonus;
                 itA->score -= (sC*championsBonus)/2;
             }

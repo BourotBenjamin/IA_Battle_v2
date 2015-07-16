@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Army.hpp"
 
+#include "OpenGLRenderer.h"
 
 void Army::copyUnits_(const std::vector<std::unique_ptr<Unit> >& units)
 {
@@ -29,6 +30,7 @@ Army::Army(std::vector<std::unique_ptr<Unit> >& units)
 Army::Army(const Army& army)
 {
     copyUnits_(army.units_);
+    this->ArmyColor = army.ArmyColor;
 }
 
 void Army::swap(Army& army)
@@ -47,7 +49,7 @@ Unit& Army::getNearestUnit(const Point& p)
 {
     if(units_.empty())throw std::invalid_argument("empty army");
     Unit* result = nullptr;
-    float minDist = std::numeric_limits<float>::max();
+    float minDist = FLT_MAX;//std::numeric_limits<float>::max();
     for(auto it = units_.begin(); it != units_.end(); ++it) {
         float d = (*it)->getPosition().distance(p);
         if(d < minDist) {
@@ -128,7 +130,7 @@ Army Army::mutate()const
 Army Army::operator*(const Army& army)const
 {
     if(this->size() == 0 && army.size() == 0)return Army(*this);
-    int s = std::min(this->size(),army.size());
+    int s = std::min<int>(this->size(),army.size());
     std::vector<std::unique_ptr<Unit> > crossing;
     for(int i = 0; i < s; i++) {
         switch(std::rand()%4) {
@@ -168,4 +170,13 @@ Army Army::load(std::istream& in)
         } catch(...) {}
     }
     return Army(units);
+}
+
+void Army::AddDrawableUnit()
+{
+    std::for_each(units_.begin(), units_.end(),[this](const std::unique_ptr<Unit>& unit) {
+        unit->InitializeOpenGL();
+        unit->myColor = this->ArmyColor;
+        OpenGLRenderer::AddElementToDraw(unit.get());
+    });
 }

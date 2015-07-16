@@ -44,6 +44,13 @@ public:
     /////////////////////////////////////
     //arithmetic operators overloading
     /////////////////////////////////////
+    bool operator!=(const Point& p)
+    {
+        if (x_ != p.x_ || y_ != p.y_)
+            return true;
+        return false;
+    }
+
     Point& operator+=(const Point& p)
     {
         x_+=p.x_;

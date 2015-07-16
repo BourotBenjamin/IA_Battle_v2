@@ -4,5 +4,7 @@
 class virtualOpenGl
 {
 public:
+    bool isAnimating = false;
+    float animationStartTime;
 	virtual void draw(GLuint program) = 0;
 };

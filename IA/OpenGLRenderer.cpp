@@ -63,6 +63,8 @@ void OpenGLRenderer::StartDisplay(BattleParameter* parameter)//, std::function<v
 {
     std::cout << "coucou" << std::endl;
     g_currentInstance->instanceParameter = parameter;
+    g_currentInstance->instanceParameter->myA.AddDrawableUnit();
+    g_currentInstance->instanceParameter->myB.AddDrawableUnit();
     //this->StepFunction = stepFunction;
     glutIdleFunc(_idleCallback);
 	glutMainLoop();
@@ -130,14 +132,21 @@ void OpenGLRenderer::Render()
 	GLint worldLocation = glGetUniformLocation(program, "u_worldMatrix");
 	glUniformMatrix4fv(worldLocation, 1, GL_FALSE, worldTransform2);
 
+    mustRedisplay=false;
+
 	for (auto element : this->elementToDraw)
 	{
 		element->draw(program);
+        if (element->isAnimating)
+            mustRedisplay = true;
 	}
 
 	glUseProgram(0);
 
 	glutSwapBuffers();
+
+    if (mustRedisplay)
+        glutPostRedisplay();
 }
 
 void OpenGLRenderer::MouseHandler(int button, int state, int x, int y)
@@ -183,12 +192,10 @@ void OpenGLRenderer::KeyBoardHandler(unsigned char key, int x, int y)
 
 void OpenGLRenderer::IdleHandler()
 {
-	if (isPaused)
-		return;
-	std::cout << "execute step" << std::endl;
+    if (isPaused || mustRedisplay)
+        return;
     executeOneTurn(g_currentInstance->instanceParameter);
-    //g_currentInstance->instanceParameter->turn++;
-	//this->StepFunction(this->instanceParameter);
+    glutPostRedisplay();
 	if (isStepByStep)
 		isPaused = true;
 }
@@ -197,6 +204,17 @@ void OpenGLRenderer::MouseWheelHandler(int button, int dir, int x, int y)
 {
 	depth += dir;
 	glutPostRedisplay();
+}
+
+void OpenGLRenderer::RemoveElementToDraw(virtualOpenGl* element) 
+{
+    int index;
+    for (index = 0; index < elementToDraw.size(); index++)
+    {
+        if (elementToDraw.at(index) == element)
+            break;
+    }
+    elementToDraw.erase(elementToDraw.begin() + index);
 }
 
 OpenGLRenderer::~OpenGLRenderer()
