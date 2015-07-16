@@ -14,3 +14,5 @@
 #include "GL/freeglut.h"
 #include "common\EsgiShader.h"
 #include "OpenGLHelper.h"
+
+enum State { Attack, Move, Default };

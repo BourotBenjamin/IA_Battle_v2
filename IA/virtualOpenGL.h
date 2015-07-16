@@ -4,7 +4,7 @@
 class virtualOpenGl
 {
 public:
+    State AnimationState = State::Default;
     bool isAnimating = false;
-    float animationStartTime;
 	virtual void draw(GLuint program) = 0;
 };

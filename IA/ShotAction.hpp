@@ -4,6 +4,7 @@
 #include "Action.hpp"
 #include <iomanip>
 #include <iostream>
+//
 #include "OpenGLRenderer.h"
 
 //Class representing the action of attacking one unit with another
@@ -21,7 +22,10 @@ public:
     void execute(bool log = false)
     {
         opponent_->takeDamage(unit_->getDamage().getValue());
-        unit_->shoot();
+        if (unit_->shoot())
+        {
+            //unit_->missile = Missile(unit_->getPosition(), opponent_->getPosition());
+        }
         if(log) {
             std::cout<<"Unit "<<unit_->getId()<<" shoot Unit "<<opponent_->getId();
             float hp = opponent_->getLife().getValue();

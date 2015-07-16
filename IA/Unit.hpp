@@ -23,6 +23,7 @@
 #include "virtualOpenGL.h"
 #include "CustomColor.h"
 #include "cube.h"
+//#include "Missile.h"
 
 //Class representing a unit, i.e. element of an army
 class Unit : public virtualOpenGl{
@@ -56,7 +57,7 @@ private:
     GLuint cubeEBO;
 
 public:
-
+    //Missile missile;
     float consumeSpeed = 0.0f;
 
     //Constructor : global level will be randomly dispatched among the capacities
@@ -205,7 +206,7 @@ public:
 
     CustomColor myColor;
     void Unit::InitializeOpenGL();
-    void draw(GLuint program);
+    void Unit::draw(GLuint program);
 };
 
 //Shift operator overloading, printing the unit in the output stream.

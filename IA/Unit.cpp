@@ -12,7 +12,9 @@ int Unit::idCount_=0;
 void Unit::init_()
 {
     id_ = idCount_++;
-    this->position_ = Point(std::rand()%Terrain::getMaxX(),std::rand()%Terrain::getMaxY());
+    this->position_ = Point(
+        (std::rand() % (Terrain::getMaxX() * 2)) - Terrain::getMaxX(),
+        (std::rand() % (Terrain::getMaxY() * 2)) - Terrain::getMaxY());
     this->capacities_.reserve(7);
     this->capacities_.push_back(std::unique_ptr<Capacity>(new SpeedCapacity()));
     this->capacities_.push_back(std::unique_ptr<Capacity>(new LifeCapacity()));

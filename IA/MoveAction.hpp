@@ -29,6 +29,7 @@ public:
             unit_->isAnimating = true;
             unit_->setNextPosition(position_);
             unit_->consumeSpeed = 0.0f;
+            unit_->AnimationState = State::Move;
         }
         //unit_->moveToPosition(position_);
         if(log)std::cout<<" to "<<unit_->getPosition()<<std::endl;

@@ -22,6 +22,7 @@
     <ClCompile Include="ExtractorO.cpp" />
     <ClCompile Include="ExtractorP.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Missile.cpp" />
     <ClCompile Include="OpenGLHelper.cpp" />
     <ClCompile Include="OpenGLRenderer.cpp" />
     <ClCompile Include="Terrain.cpp" />
@@ -48,6 +49,8 @@
     <ClInclude Include="ExtractorP.h" />
     <ClInclude Include="FirerateCapacity.hpp" />
     <ClInclude Include="LifeCapacity.hpp" />
+    <ClInclude Include="Missile.h" />
+    <ClInclude Include="missileEBO.h" />
     <ClInclude Include="MoveAction.hpp" />
     <ClInclude Include="OpenGLHelper.h" />
     <ClInclude Include="OpenGLInclude.h" />
