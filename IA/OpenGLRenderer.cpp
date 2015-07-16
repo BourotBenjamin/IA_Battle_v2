@@ -186,7 +186,8 @@ void OpenGLRenderer::IdleHandler()
 	if (isPaused)
 		return;
 	std::cout << "execute step" << std::endl;
-    executeOneTurn(*g_currentInstance->instanceParameter);
+    executeOneTurn(g_currentInstance->instanceParameter);
+    //g_currentInstance->instanceParameter->turn++;
 	//this->StepFunction(this->instanceParameter);
 	if (isStepByStep)
 		isPaused = true;
