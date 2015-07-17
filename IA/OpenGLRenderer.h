@@ -1,14 +1,8 @@
 #pragma once
 #include "virtualOpenGL.h"
 #include "Terrain.hpp"
-#include "Point.hpp"
-
-#include "Army.hpp"
-#include "AI.hpp"
 #include "BattleParameter.h"
-
 #include <vector>
-#include <functional>
 
 class OpenGLRenderer
 {
@@ -35,7 +29,7 @@ private:
 	float depth = -7.0f;
 	bool dragAction;
 	bool isPaused=false;
-	bool isStepByStep=true;
+	bool isStepByStep=false;
 	BattleParameter* instanceParameter;
     bool mustRedisplay;
 

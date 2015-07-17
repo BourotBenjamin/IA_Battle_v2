@@ -25,14 +25,18 @@ public:
         if (unit_->shoot())
         {
             unit_->missile = Missile(unit_->getPosition(), opponent_->getPosition());
+            std::cout << "missile added : " << &unit_->missile << std::endl;
             OpenGLRenderer::AddElementToDraw(&unit_->missile);
         }
         if(log) {
-            std::cout<<"Unit "<<unit_->getId()<<" shoot Unit "<<opponent_->getId();
+            std::cout<<"Unit "<<unit_->getId()<<" shoot Unit "<<opponent_->getId() << " with missile : " << &unit_->missile;
             float hp = opponent_->getLife().getValue();
             if(hp>0) {
                 std::cout<<" ("<<hp<<"hp remaining)"<<std::endl;
             } else {
+                //bug connu non résolu de façon normal : 
+                //si une unité meurt alors qu'elle avait tiré ce tour ci le missile est détruit et ne peux donc plus être draw
+                OpenGLRenderer::RemoveElementToDraw(&opponent_->missile);
                 OpenGLRenderer::RemoveElementToDraw(opponent_);
                 std::cout<<" (dead !)"<<std::endl;
             }

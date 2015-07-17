@@ -59,13 +59,12 @@ OpenGLRenderer::OpenGLRenderer(int argc, char* argv[])
 	glutKeyboardFunc(_keypressCallback);
 }
 
-void OpenGLRenderer::StartDisplay(BattleParameter* parameter)//, std::function<void(BattleParameter*)> stepFunction)
+void OpenGLRenderer::StartDisplay(BattleParameter* parameter)
 {
-    std::cout << "coucou" << std::endl;
+    g_currentInstance->elementToDraw.clear();
     g_currentInstance->instanceParameter = parameter;
     g_currentInstance->instanceParameter->myA.AddDrawableUnit();
     g_currentInstance->instanceParameter->myB.AddDrawableUnit();
-    //this->StepFunction = stepFunction;
     glutIdleFunc(_idleCallback);
 	glutMainLoop();
 }
@@ -95,6 +94,7 @@ void OpenGLRenderer::Initialize()
 
 void OpenGLRenderer::Render()
 {
+
 	glViewport(0, 0, glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT));
 	glClearColor(0.f, 0.f, 0.0f, 1.0f);
 	glClearDepth(1.F);
@@ -146,6 +146,8 @@ void OpenGLRenderer::Render()
             element->BlockAnimation = true;
     }
 
+    std::vector<virtualOpenGl*> destroyElement;
+
     for (auto element : this->elementToDraw)
 	{
 		element->draw(program);
@@ -153,9 +155,14 @@ void OpenGLRenderer::Render()
             mustRedisplay = true;
         if (element->MustBeDestroy())
         {
-            this->RemoveElementToDraw(element);
+            destroyElement.push_back(element);
         }
 	}
+
+    for (auto element : destroyElement)
+    {
+        this->RemoveElementToDraw(element);
+    }
 
 	glUseProgram(0);
 
@@ -235,13 +242,18 @@ void OpenGLRenderer::MouseWheelHandler(int button, int dir, int x, int y)
 
 void OpenGLRenderer::RemoveElementToDraw(virtualOpenGl* element) 
 {
+    bool doDelete=false;
     int index;
     for (index = 0; index < elementToDraw.size(); index++)
     {
         if (elementToDraw.at(index) == element)
+        {
+            doDelete = true;
             break;
+        }
     }
-    elementToDraw.erase(elementToDraw.begin() + index);
+    if (doDelete)
+        elementToDraw.erase(elementToDraw.begin() + index);
 }
 
 OpenGLRenderer::~OpenGLRenderer()
