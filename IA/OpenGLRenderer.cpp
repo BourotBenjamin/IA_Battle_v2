@@ -61,7 +61,7 @@ OpenGLRenderer::OpenGLRenderer(int argc, char* argv[])
 
 void OpenGLRenderer::StartDisplay(BattleParameter* parameter)
 {
-    g_currentInstance->elementToDraw.clear();
+    //g_currentInstance->elementToDraw.clear();
     g_currentInstance->instanceParameter = parameter;
     g_currentInstance->instanceParameter->myA.AddDrawableUnit();
     g_currentInstance->instanceParameter->myB.AddDrawableUnit();
@@ -128,9 +128,11 @@ void OpenGLRenderer::Render()
 	float worldTransform[16];
 	OpenGLHelper::Identity(worldTransform);
 	float worldTransform2[16];
-	OpenGLHelper::Rotate(worldTransform2, worldTransform, _angleY, .0f, .0f, 1.0f);
+	OpenGLHelper::Rotate(worldTransform2, worldTransform, _angleY, .0f, 1.0f, 0.0f);
+    float worldTransform3[16];
+    OpenGLHelper::Rotate(worldTransform3, worldTransform2, _angleX, 1.0f, .0f, .0f);
 	GLint worldLocation = glGetUniformLocation(program, "u_worldMatrix");
-	glUniformMatrix4fv(worldLocation, 1, GL_FALSE, worldTransform2);
+	glUniformMatrix4fv(worldLocation, 1, GL_FALSE, worldTransform3);
 
     mustRedisplay=false;
 
@@ -201,7 +203,9 @@ void OpenGLRenderer::MotionHandler(int x, int y)
 	if (dragAction)
 	{
 		double distanceX = x - lastPoint.getX();
-		_angleY += 0.1*distanceX;
+		_angleY += 0.2*distanceX;
+        double distanceY = y - lastPoint.getY();
+        _angleX += 0.2*distanceY;
 	}
 	lastPoint.setX(x);
 	lastPoint.setY(y);

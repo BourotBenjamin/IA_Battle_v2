@@ -50,7 +50,6 @@
     <ClInclude Include="FirerateCapacity.hpp" />
     <ClInclude Include="LifeCapacity.hpp" />
     <ClInclude Include="Missile.h" />
-    <ClInclude Include="missileEBO.h" />
     <ClInclude Include="MoveAction.hpp" />
     <ClInclude Include="OpenGLHelper.h" />
     <ClInclude Include="OpenGLInclude.h" />

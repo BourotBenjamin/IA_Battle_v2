@@ -30,12 +30,12 @@ void Unit::InitializeOpenGL()
 
     glGenBuffers(1, &cubeVBO);
     glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * 8, g_cubeVertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(g_cubeVertices), g_cubeVertices, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     glGenBuffers(1, &cubeEBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, cubeEBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned short) * 3 * 12, g_cubeIndices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(g_cubeIndices), g_cubeIndices, GL_STATIC_DRAW);
 }
 
 //Constructor : global level will be randomly dispatched among the capacities
@@ -238,9 +238,8 @@ void Unit::draw(GLuint program)
 
     GLint offsetLocation = glGetUniformLocation(program, "u_offset");
     glUniform3f(offsetLocation, this->position_.getX(), this->position_.getY(), 0.0f);
-
-    glDrawArrays(GL_TRIANGLES, 0, 4);
+    glDrawArrays(GL_TRIANGLES, 0, sizeof(g_cubeVertices));
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, cubeEBO);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, nullptr);
+    glDrawElements(GL_TRIANGLES, sizeof(g_cubeIndices), GL_UNSIGNED_SHORT, nullptr);
 }

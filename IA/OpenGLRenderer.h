@@ -24,8 +24,8 @@ private:
 	GLuint terrainVBO;
 	GLuint terrainEBO;
 	EsgiShader basicShader;
-	GLdouble _angleY;
-	GLdouble _angleX;
+	GLdouble _angleY=0;
+	GLdouble _angleX=0;
 	float depth = -7.0f;
 	bool dragAction;
 	bool isPaused=false;

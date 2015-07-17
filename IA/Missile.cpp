@@ -9,12 +9,12 @@ Missile::Missile(Point startPos, Point endPos) : currentPosition(startPos), targ
 
     glGenBuffers(1, &missileVBO);
     glBindBuffer(GL_ARRAY_BUFFER, missileVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * 8, g_missileVertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(g_littleCubeVertices), g_littleCubeVertices, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     glGenBuffers(1, &missileEBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, missileEBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned short) * 3 * 12, g_missileIndices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(g_cubeIndices), g_cubeIndices, GL_STATIC_DRAW);
 }
 
 void Missile::draw(GLuint program)
@@ -41,10 +41,10 @@ void Missile::draw(GLuint program)
     GLint offsetLocation = glGetUniformLocation(program, "u_offset");
     glUniform3f(offsetLocation, this->currentPosition.getX(), this->currentPosition.getY(), 0.0f);
 
-    glDrawArrays(GL_TRIANGLES, 0, 4);
+    glDrawArrays(GL_TRIANGLES, 0, sizeof(g_cubeVertices));
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, missileEBO);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, nullptr);
+    glDrawElements(GL_TRIANGLES, sizeof(g_cubeIndices), GL_UNSIGNED_SHORT, nullptr);
 }
 
 

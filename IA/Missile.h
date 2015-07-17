@@ -6,7 +6,7 @@
 
 #include "CustomColor.h"
 #include "Point.hpp"
-#include "missileEBO.h"
+#include "cube.h"
 
 class Missile : public virtualOpenGl
 {
