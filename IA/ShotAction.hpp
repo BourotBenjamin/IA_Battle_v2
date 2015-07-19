@@ -21,7 +21,6 @@ public:
 		if (unit_->shoot())
 		{
 			opponent_->takeDamage(unit_->getDamage().getValue());
-			unit_->shoot();
 			if(log) {
 				std::cout<<"Unit "<<unit_->getId()<<" shoot Unit "<<opponent_->getId();
 				float hp = opponent_->getLife().getValue();
