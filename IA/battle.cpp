@@ -45,6 +45,7 @@ void executeOneTurn(BattleParameter* parameter)
 		std::cout << "-------------------------------" << std::endl;
 	}
 
+
 	std::vector<UnitChoice> order;
 	std::transform(A->getUnitsList().begin(), A->getUnitsList().end(), std::back_inserter(order),
 		[A, B](std::shared_ptr<Unit>& u) {
@@ -58,15 +59,16 @@ void executeOneTurn(BattleParameter* parameter)
 	});
 	std::random_shuffle(order.begin(), order.end());
 
-	for (auto it = order.begin(); it != order.end(); it++) {
-		try {
-            if (parameter->log)std::cout << "Unit#" << it->unitId << " (Army " << ((it->army) == A ? "A" : "B") << ") : ";
-			Unit& unit = it->army->getUnit(it->unitId);
-            std::shared_ptr<Action> action = parameter->ai(unit, *(it->army), *(it->opponents));
-            action->execute(parameter->log);
-			it->opponents->purge();
-		}
-		catch (std::invalid_argument e) {
+        for(auto it = order.begin(); it != order.end(); it++) {
+            try {
+                if(parameter->log)std::cout<<"Unit#"<<it->unitId<<" (Army "<<((it->army)==A?"A":"B")<<") : ";
+                Unit& unit = it->army->getUnit(it->unitId);
+                std::unique_ptr<Action> action = parameter->ai(unit, *(it->army), *(it->opponents));
+                action->execute(parameter->log);
+                it->opponents->purge();
+				if (it->opponents->size() == 0)
+					break;
+            } catch(std::invalid_argument e) {
 
 			//can happens if the unit is already dead or if an army is empty
 			continue;
