@@ -11,7 +11,7 @@ ExtractorU::~ExtractorU()
 }
 
 
-Unit ExtractorU::get(Unit& unit, Army& allies, Army& oponents)
+Unit& ExtractorU::get(Unit& unit, Army& allies, Army& oponents)
 {
 	return unit;
 }

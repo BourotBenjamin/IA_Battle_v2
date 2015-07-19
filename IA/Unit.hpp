@@ -27,7 +27,6 @@
 #include "CustomColor.h"
 #include "cube.h"
 
-
 //Class representing a unit, i.e. element of an army
 class Unit : public virtualOpenGl{
 
@@ -221,4 +220,5 @@ inline std::ostream& operator<<(std::ostream& out, const Unit& unit)
     return out;
 }
 
+typedef std::vector<std::shared_ptr<Unit>> UnitSet;
 #endif

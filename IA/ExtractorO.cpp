@@ -10,9 +10,9 @@ ExtractorO::~ExtractorO()
 {
 }
 
-Army ExtractorO::get(Unit& unit, Army& allies, Army& oponents)
+UnitSet& ExtractorO::get(Unit& unit, Army& allies, Army& oponents)
 {
-	return oponents;
+	return oponents.getUnitsList();
 }
 
 std::string ExtractorO::getCode()

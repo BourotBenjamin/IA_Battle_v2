@@ -1,8 +1,9 @@
 #include "ExtractorD.h"
 
 
-ExtractorD::ExtractorD()
+ExtractorD::ExtractorD(std::string* code)
 {
+	extractorPoint = (Extractor<Point>*) ExtractorConstructor::create(code);
 }
 
 
@@ -10,9 +11,10 @@ ExtractorD::~ExtractorD()
 {
 }
 
-float ExtractorD::get(Unit& unit, Army& allies, Army& oponents)
+double& ExtractorD::get(Unit& unit, Army& allies, Army& oponents)
 {
-	return extractorUnit->get(unit, allies, oponents).getPosition().distance(extractorPoint->get(unit, allies, oponents));
+	double d = extractorUnit->get(unit, allies, oponents).getPosition().distance(extractorPoint->get(unit, allies, oponents));
+	return d;
 }
 
 std::string ExtractorD::getCode()

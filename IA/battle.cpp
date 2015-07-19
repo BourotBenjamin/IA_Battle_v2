@@ -32,7 +32,6 @@ void fight(const Army& a, const Army& b, int& scoreA, int& scoreB, bool log)
     int turn = 1;
 
     BattleParameter parameter(myA, myB, scoreA, scoreB, log, ai, turn);
-
     OpenGLRenderer::StartDisplay(&parameter);//,executeOneTurn);
 }
 
@@ -48,12 +47,12 @@ void executeOneTurn(BattleParameter* parameter)
 
 	std::vector<UnitChoice> order;
 	std::transform(A->getUnitsList().begin(), A->getUnitsList().end(), std::back_inserter(order),
-		[A, B](std::unique_ptr<Unit>& u) {
+		[A, B](std::shared_ptr<Unit>& u) {
 		u->refresh();
 		return UnitChoice(u->getId(), A, B);
 	});
 	std::transform(B->getUnitsList().begin(), B->getUnitsList().end(), std::back_inserter(order),
-		[&A, &B](std::unique_ptr<Unit>& u) {
+        [&A, &B](std::shared_ptr<Unit>& u) {
 		u->refresh();
 		return UnitChoice(u->getId(), B, A);
 	});
@@ -63,7 +62,7 @@ void executeOneTurn(BattleParameter* parameter)
 		try {
             if (parameter->log)std::cout << "Unit#" << it->unitId << " (Army " << ((it->army) == A ? "A" : "B") << ") : ";
 			Unit& unit = it->army->getUnit(it->unitId);
-            std::unique_ptr<Action> action = parameter->ai(unit, *(it->army), *(it->opponents));
+            std::shared_ptr<Action> action = parameter->ai(unit, *(it->army), *(it->opponents));
             action->execute(parameter->log);
 			it->opponents->purge();
 		}
