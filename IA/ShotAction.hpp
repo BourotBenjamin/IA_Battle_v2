@@ -18,17 +18,20 @@ public:
     //Log parameter indicate if we write something or not on the standard output
     void execute(bool log = false)
     {
-        opponent_->takeDamage(unit_->getDamage().getValue());
-        unit_->shoot();
-        if(log) {
-            std::cout<<"Unit "<<unit_->getId()<<" shoot Unit "<<opponent_->getId();
-            float hp = opponent_->getLife().getValue();
-            if(hp>0) {
-                std::cout<<" ("<<hp<<"hp remaining)"<<std::endl;
-            } else {
-                std::cout<<" (dead !)"<<std::endl;
-            }
-        }
+		if (unit_->shoot())
+		{
+			opponent_->takeDamage(unit_->getDamage().getValue());
+			unit_->shoot();
+			if(log) {
+				std::cout<<"Unit "<<unit_->getId()<<" shoot Unit "<<opponent_->getId();
+				float hp = opponent_->getLife().getValue();
+				if(hp>0) {
+					std::cout<<" ("<<hp<<"hp remaining)"<<std::endl;
+				} else {
+					std::cout<<" (dead !)"<<std::endl;
+				}
+			}
+		}
     }
 };
 
