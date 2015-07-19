@@ -43,12 +43,16 @@
     <ClCompile Include="Extractor_aD.cpp" />
     <ClCompile Include="Extractor_m.cpp" />
     <ClCompile Include="Extractor_mD.cpp" />
+    <ClCompile Include="Leaf.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Missile.cpp" />
     <ClCompile Include="OpenGLHelper.cpp" />
     <ClCompile Include="OpenGLRenderer.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="NodeConstructor.cpp" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="training.cpp" />
+    <ClCompile Include="TreeElement.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="ExtractorU.cpp" />
   </ItemGroup>
@@ -92,12 +96,15 @@
     <ClInclude Include="Extractor_m.h" />
     <ClInclude Include="Extractor_mD.h" />
     <ClInclude Include="FirerateCapacity.hpp" />
+    <ClInclude Include="Leaf.h" />
     <ClInclude Include="LifeCapacity.hpp" />
     <ClInclude Include="Missile.h" />
     <ClInclude Include="MoveAction.hpp" />
     <ClInclude Include="OpenGLHelper.h" />
     <ClInclude Include="OpenGLInclude.h" />
     <ClInclude Include="OpenGLRenderer.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="NodeConstructor.h" />
     <ClInclude Include="Point.hpp" />
     <ClInclude Include="RangeCapacity.hpp" />
     <ClInclude Include="RegenCapacity.hpp" />
@@ -105,6 +112,7 @@
     <ClInclude Include="SpeedCapacity.hpp" />
     <ClInclude Include="Terrain.hpp" />
     <ClInclude Include="training.hpp" />
+    <ClInclude Include="TreeElement.h" />
     <ClInclude Include="Unit.hpp" />
     <ClInclude Include="ExtractorU.h" />
     <ClInclude Include="virtualOpenGL.h" />
