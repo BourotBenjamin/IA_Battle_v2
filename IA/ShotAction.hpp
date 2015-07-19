@@ -25,11 +25,9 @@ public:
         if (unit_->shoot())
         {
             unit_->missile = Missile(unit_->getPosition(), opponent_->getPosition());
-            std::cout << "missile added : " << &unit_->missile << std::endl;
             OpenGLRenderer::AddElementToDraw(&unit_->missile);
         }
         if(log) {
-            std::cout<<"Unit "<<unit_->getId()<<" shoot Unit "<<opponent_->getId() << " with missile : " << &unit_->missile;
             float hp = opponent_->getLife().getValue();
             if(hp>0) {
                 std::cout<<" ("<<hp<<"hp remaining)"<<std::endl;

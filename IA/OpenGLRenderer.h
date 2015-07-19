@@ -32,7 +32,6 @@ private:
 	bool isStepByStep=false;
 	BattleParameter* instanceParameter;
     bool mustRedisplay;
-
     std::vector<virtualOpenGl*> OpenGLRenderer::GetAnimatedElementForState(State selectedState);
 };
 
