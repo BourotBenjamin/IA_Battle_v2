@@ -4,6 +4,7 @@
 #include "Terrain.hpp"
 #include <memory>
 #include <numeric>
+#include "NodeConstructor.h"
 
 //static counter used for unique id creation
 int Unit::idCount_=0;
@@ -42,10 +43,9 @@ void Unit::InitializeOpenGL()
 Unit::Unit(int globalLevel)
 {
     init_();
-    if(std::rand()%2)this->iaCode_ = "L";
-    else this->iaCode_ = "H";
-    if(rand()%8==0)this->iaCode_ += "D";
-    else this->iaCode_ += '0'+ (char)(rand()%7);
+	this->iaCode_ = std::string("?C1LDOPU<14U!ALDOPU?aDOPU<a5O!EBO!MBO");
+	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&iaCode_));
+	this->iaCode_ = std::string("?C1LDOPU<C1U!ALDOPU?aDOPU<a5O!EBO!MBO");
     while(globalLevel--) {
         this->capacities_[std::rand()%this->capacities_.size()]->upgrade();
     }
@@ -57,6 +57,7 @@ Unit::Unit(std::string iaCode, int speedLevel, int lifeLevel, int armorLevel, in
 {
     init_();
     this->iaCode_ = iaCode;
+	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&iaCode));
     getSpeed().upgrade(speedLevel);
     getLife().upgrade(lifeLevel);
     getArmor().upgrade(armorLevel);
@@ -70,8 +71,10 @@ Unit::Unit(std::string iaCode, int speedLevel, int lifeLevel, int armorLevel, in
 //Constructor from the code of AI and the level of the 7 capacities
 Unit::Unit(std::string iaCode, std::vector<int>& levels)
 {
-    init_();
-    this->iaCode_ = iaCode;
+	init_();
+	this->iaCode_ = iaCode;
+	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&iaCode_));
+	this->iaCode_ = iaCode;
     for(int i = 0; i < levels.size() && i < capacities_.size(); ++i) {
         capacities_[i]->upgrade(levels[i]);
     }
@@ -81,8 +84,10 @@ Unit::Unit(std::string iaCode, std::vector<int>& levels)
 //Copy constructor
 Unit::Unit(const Unit& unit)
 {
-    init_();
-    this->iaCode_ = unit.iaCode_;
+	init_();
+	this->iaCode_ = unit.iaCode_;
+	tree = std::shared_ptr<TreeElement>(std::move((TreeElement*)NodeConstructor::create(&iaCode_)));
+	this->iaCode_ = unit.iaCode_;
     for(int i = 0;  i < capacities_.size(); ++i) {
         capacities_[i]->upgrade(unit.capacities_[i]->getLevel());
     }
@@ -95,7 +100,9 @@ void Unit::swap(Unit& unit)
     std::swap(capacities_, unit.capacities_);
     std::swap(iaCode_, unit.iaCode_);
     std::swap(position_, unit.position_);
-    std::swap(id_, unit.id_);
+	std::swap(id_, unit.id_);
+	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&this->iaCode_));
+	iaCode_ = unit.iaCode_;
 }
 
 
