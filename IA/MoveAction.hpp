@@ -3,6 +3,7 @@
 #include "Unit.hpp"
 #include "Action.hpp"
 #include "Point.hpp"
+#include "Terrain.hpp"
 #include <iostream>
 
 
@@ -15,8 +16,9 @@ private:
 public:
 
     //Constructor taking in paramters the unit to move and the destination
-    MoveAction(Unit& unit, const Point& position):unit_(&unit), position_(position)
+    MoveAction(Unit& unit, Point position):unit_(&unit), position_(position)
     {
+		Terrain::clampPointInTerrain(position);
     }
 
     //Run the action

@@ -1,7 +1,6 @@
 #include <cstdlib>
 #include <algorithm>
 #include "Unit.hpp"
-#include "Terrain.hpp"
 #include <memory>
 #include <numeric>
 #include "NodeConstructor.h"
@@ -29,9 +28,9 @@ void Unit::init_()
 Unit::Unit(int globalLevel)
 {
     init_();
-	this->iaCode_ = std::string("?C1LDOPU<14U!ALDOPU?aDOPU<a5O!EBO!MBO");
+	this->iaCode_ = std::string("?C1LDOPU<14U!ALDOPU?aDOPU<a5O!MBO!ALDOPU");
 	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&iaCode_));
-	this->iaCode_ = std::string("?C1LDOPU<C1U!ALDOPU?aDOPU<a5O!EBO!MBO");
+	this->iaCode_ = std::string("?C1LDOPU<C1U!ALDOPU?aDOPU<a5O!MBO!ALDOPU");
     while(globalLevel--) {
         this->capacities_[std::rand()%this->capacities_.size()]->upgrade();
     }

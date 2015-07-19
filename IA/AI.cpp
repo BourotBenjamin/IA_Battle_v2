@@ -6,7 +6,6 @@
 #include "EmptyAction.hpp"
 #include "Unit.hpp"
 #include "Army.hpp"
-#include "Terrain.hpp"
 #include <iostream>
 
 //Parenthesis overloading for applying the AI on the unit provided in parameter

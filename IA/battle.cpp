@@ -58,6 +58,8 @@ void fight(const Army& a, const Army& b, int& scoreA, int& scoreB, bool log)
                 std::unique_ptr<Action> action = ai(unit, *(it->army), *(it->opponents));
                 action->execute(log);
                 it->opponents->purge();
+				if (it->opponents->size() == 0)
+					break;
             } catch(std::invalid_argument e) {
 
                 //can happens if the unit is already dead or if an army is empty
