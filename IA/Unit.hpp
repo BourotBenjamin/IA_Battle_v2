@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _UNIT_HPP_
 #define _UNIT_HPP_
 #include <memory>
@@ -18,37 +19,42 @@
 #include "RangeCapacity.hpp"
 #include "ArmorCapacity.hpp"
 #include "Point.hpp"
+#include "TreeElement.h"
 
 
 //Class representing a unit, i.e. element of an army
 class Unit {
 
 private:
+	std::shared_ptr<TreeElement> tree;
 
-    //static counter used for unique id creation
-    static int idCount_;
+	//static counter used for unique id creation
+	static int idCount_;
 
-    //unique id of the Unit
-    int id_;
+	//unique id of the Unit
+	int id_;
 
-    //code representing the AI used by the unit
-    std::string iaCode_;
+	//code representing the AI used by the unit
+	std::string iaCode_;
 
-    //vector of the unit's capacities
-    //order is : speed, life, armor, regen, damage, range, firerate
-    std::vector<std::unique_ptr<Capacity> > capacities_;
+	//vector of the unit's capacities
+	//order is : speed, life, armor, regen, damage, range, firerate
+	std::vector<std::unique_ptr<Capacity> > capacities_;
 
-    //position of the unit
-    Point position_;
+	//position of the unit
+	Point position_;
 
 
-    //Method in charge of the initialization of id, position(random), and capacities
-    void init_();
+	//Method in charge of the initialization of id, position(random), and capacities
+	void init_();
 
 public:
 
+	std::shared_ptr<TreeElement> getTree(){ return tree; }
+
     //Constructor : global level will be randomly dispatched among the capacities
-    Unit(int globalLevel);
+    
+	Unit(int globalLevel);
 
     //Constructor from the code of AI and the level of the different capacities
     Unit(std::string iaCode, int speedLevel, int lifeLevel, int armorLevel, int regenLevel, int damageLevel, int rangeLevel, int firerateLevel);

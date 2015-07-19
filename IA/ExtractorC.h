@@ -4,7 +4,7 @@ class ExtractorC :
 	public Extractor<double>
 {
 public:
-	ExtractorC(std::string* code);
+	ExtractorC(char capacity_index, std::string* code);
 	~ExtractorC();
 	double& get(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();

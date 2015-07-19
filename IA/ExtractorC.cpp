@@ -1,8 +1,9 @@
 #include "ExtractorC.h"
 
 
-ExtractorC::ExtractorC(std::string* code)
+ExtractorC::ExtractorC(char capacity_index, std::string* code)
 {
+	capacity = capacity_index - '0';
 	extractorUnit = (Extractor<Unit>*) ExtractorConstructor::create(code);
 }
 

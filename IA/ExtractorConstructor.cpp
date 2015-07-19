@@ -39,14 +39,18 @@ ExtractorConstructor::~ExtractorConstructor()
 void* ExtractorConstructor::create(std::string* code)
 {
 	void* extractor = nullptr;
+	char c2, c3;
 	char c = code->at(0);
-	char c2 = code->at(1);
-	char c3 = code->at(2);
+	if (code->length() > 1)
+		c2 = code->at(1);
+	if (code->length() > 2)
+		c3 = code->at(2);
 	*code = std::string(std::string(code->begin() + 1, code->end()));
 	switch (c)
 	{
 	case 'C':
-		extractor = new ExtractorC(code);
+		*code = std::string(std::string(code->begin() + 1, code->end()));
+		extractor = new ExtractorC(c2, code);
 		break;
 	case 'D':
 		extractor = new ExtractorD(code);
@@ -67,7 +71,7 @@ void* ExtractorConstructor::create(std::string* code)
 		extractor = new ExtractorO();
 		break;
 	case 'M':
-		*code = std::string(std::string(code->begin() + 2, code->end()));
+		*code = std::string(std::string(code->begin() + 1, code->end()));
 		switch (c2)
 		{
 		case 'D':
@@ -79,7 +83,7 @@ void* ExtractorConstructor::create(std::string* code)
 		}
 		break;
 	case 'm':
-		*code = std::string(std::string(code->begin() + 2, code->end()));
+		*code = std::string(std::string(code->begin() + 1, code->end()));
 		switch (c2)
 		{
 		case 'D':
@@ -91,7 +95,7 @@ void* ExtractorConstructor::create(std::string* code)
 		}
 		break;
 	case 'a':
-		*code = std::string(std::string(code->begin() + 2, code->end()));
+		*code = std::string(std::string(code->begin() + 1, code->end()));
 		switch (c2)
 		{
 		case 'D':
@@ -103,7 +107,7 @@ void* ExtractorConstructor::create(std::string* code)
 		}
 		break;
 	case 'L':
-		*code = std::string(std::string(code->begin() + 2, code->end()));
+		*code = std::string(std::string(code->begin() + 1, code->end()));
 		switch (c2)
 		{
 		case 'D':
@@ -115,7 +119,7 @@ void* ExtractorConstructor::create(std::string* code)
 		}
 		break;
 	case 'H':
-		*code = std::string(std::string(code->begin() + 2, code->end()));
+		*code = std::string(std::string(code->begin() + 1, code->end()));
 		switch (c2)
 		{
 		case 'D':
@@ -127,7 +131,7 @@ void* ExtractorConstructor::create(std::string* code)
 		}
 		break;
 	case 'N':
-		*code = std::string(std::string(code->begin() + 3, code->end()));
+		*code = std::string(std::string(code->begin() + 2, code->end()));
 		switch (c2)
 		{
 		case 'L':
@@ -153,7 +157,7 @@ void* ExtractorConstructor::create(std::string* code)
 		}
 		break;
 	case 'T':
-		*code = std::string(std::string(code->begin() + 3, code->end()));
+		*code = std::string(std::string(code->begin() + 2, code->end()));
 		switch (c2)
 		{
 		case 'L':

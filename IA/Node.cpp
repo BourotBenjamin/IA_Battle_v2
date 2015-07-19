@@ -12,11 +12,12 @@ Node::Node(std::string* str)
 	std::smatch base_match;
 	std::regex_match(*str, base_match, regex);
 	std::string extractor1_str = base_match[1].str();
-	extractor1 = std::shared_ptr<Extractor<float>>((Extractor<float>*) ExtractorConstructor::create(&extractor1_str));
 	std::string extractor2_str = base_match[3].str();
+	int l = extractor1_str.length() + extractor2_str.length() + 1;
+	extractor1 = std::shared_ptr<Extractor<float>>((Extractor<float>*) ExtractorConstructor::create(&extractor1_str));
 	extractor2 = std::shared_ptr<Extractor<float>>((Extractor<float>*) ExtractorConstructor::create(&extractor2_str));
 	operand = base_match[2].str().at(0);
-	*str = std::string(str->begin() + extractor1_str.length() + extractor2_str.length() + 1, str->end());
+	*str = std::string(str->begin() + l, str->end());
 	son1 = std::unique_ptr<TreeElement>((TreeElement*) NodeConstructor::create(str));
 	son2 = std::unique_ptr<TreeElement>((TreeElement*) NodeConstructor::create(str));
 }
@@ -29,10 +30,13 @@ Node::~Node()
 
 
 
-std::unique_ptr<Action> Node::execute(Unit& u, Army& a, Army& o)
+std::unique_ptr<Action> Node::execute(void* u, void* a, void* o)
 {
-	float value1 = this->extractor1->get(u, a, o);
-	float value2 = this->extractor1->get(u, a, o);
+	Unit unit = *((Unit*)u);
+	Army allies = *((Army*)a);
+	Army oponents = *((Army*)o);
+	float value1 = this->extractor1->get(unit, allies, oponents);
+	float value2 = this->extractor1->get(unit, allies, oponents);
 	bool cond = false;
 	switch (operand)
 	{
