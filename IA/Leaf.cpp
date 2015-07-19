@@ -12,7 +12,7 @@ Leaf::Leaf(std::string* str)
 	std::regex_match(*str, base_match, regex);
 	std::string extractor_str = base_match[1].str();
 	int l = extractor_str.length();
-	char action = str->at(0);
+	action = str->at(0);
 	switch (action)
 	{
 	case 'M':
@@ -33,9 +33,9 @@ Leaf::~Leaf()
 
 std::unique_ptr<Action> Leaf::execute(void* u, void* a, void* o)
 {
-	Unit unit = *((Unit*)u);
-	Army allies = *((Army*)a);
-	Army oponents = *((Army*)o);
+	Unit& unit = *((Unit*)u);
+	Army& allies = *((Army*)a);
+	Army& oponents = *((Army*)o);
 	switch (action)
 	{
 	case 'M':

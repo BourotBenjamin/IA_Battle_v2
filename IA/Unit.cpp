@@ -29,9 +29,9 @@ void Unit::init_()
 Unit::Unit(int globalLevel)
 {
     init_();
-	this->iaCode_ = std::string("?C1LDOPU<C4U!ALDOPU?aDOPU<a5O!EBO!N");
+	this->iaCode_ = std::string("?C1LDOPU<14U!ALDOPU?aDOPU<a5O!EBO!MBO");
 	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&iaCode_));
-	this->iaCode_ = std::string("?C1LDOPU<C4U!ALDOPU?aDOPU<a5O!EBO!N");
+	this->iaCode_ = std::string("?C1LDOPU<C1U!ALDOPU?aDOPU<a5O!EBO!MBO");
     while(globalLevel--) {
         this->capacities_[std::rand()%this->capacities_.size()]->upgrade();
     }
