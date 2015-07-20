@@ -31,6 +31,9 @@ public:
 				}
 			}
 		}
+		else if (log) {
+			std::cout << "Unit " << unit_->getId() << " wanted to shoot Unit " << opponent_->getId() << " but can't." << std::endl;
+		}
     }
 };
 
