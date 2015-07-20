@@ -12,5 +12,5 @@
 //Return the action which have to be done by the unit in this context
 std::unique_ptr<Action> AI::operator()(Unit& unit, Army& allies, Army& opponents)
 {
-	return unit.getTree()->execute(&unit, &allies, &opponents);
+	return unit.getTree()->execute(unit, allies, opponents);
 }

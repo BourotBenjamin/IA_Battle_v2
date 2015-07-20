@@ -26,7 +26,9 @@ public:
             opponent_->takeDamage(unit_->getDamage().getValue());
             unit_->missile = Missile(unit_->getPosition(), opponent_->getPosition());
             OpenGLRenderer::AddElementToDraw(&unit_->missile);
-        }
+        }else if (log) {
+		std::cout << "Unit " << unit_->getId() << " wanted to shoot Unit " << opponent_->getId() << " but can't." << std::endl;
+	}
         if(log) {
             std::cout << "Unit " << unit_->getId() << " shoot Unit " << opponent_->getId();
             float hp = opponent_->getLife().getValue();

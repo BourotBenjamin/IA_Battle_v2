@@ -1,53 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="AI.cpp" />
-    <ClCompile Include="Army.cpp" />
-    <ClCompile Include="battle.cpp" />
-    <ClCompile Include="BattleParameter.cpp" />
-    <ClCompile Include="common\EsgiShader.cpp" />
-    <ClCompile Include="CustomColor.cpp" />
-    <ClCompile Include="Extractor.cpp" />
-    <ClCompile Include="ExtractorA.cpp" />
-    <ClCompile Include="ExtractorB.cpp" />
-    <ClCompile Include="ExtractorC.cpp" />
-    <ClCompile Include="ExtractorConstructor.cpp" />
-    <ClCompile Include="ExtractorD.cpp" />
-    <ClCompile Include="ExtractorH.cpp" />
-    <ClCompile Include="ExtractorHD.cpp" />
-    <ClCompile Include="ExtractorL.cpp" />
-    <ClCompile Include="ExtractorLD.cpp" />
-    <ClCompile Include="ExtractorM.cpp" />
-    <ClCompile Include="ExtractorMD.cpp" />
-    <ClCompile Include="ExtractorNH.cpp" />
-    <ClCompile Include="ExtractorNHD.cpp" />
-    <ClCompile Include="ExtractorNL.cpp" />
-    <ClCompile Include="ExtractorNLD.cpp" />
-    <ClCompile Include="ExtractorO.cpp" />
-    <ClCompile Include="ExtractorP.cpp" />
-    <ClCompile Include="ExtractorTH.cpp" />
-    <ClCompile Include="ExtractorTHD.cpp" />
-    <ClCompile Include="ExtractorTL.cpp" />
-    <ClCompile Include="ExtractorTLD.cpp" />
-    <ClCompile Include="Extractor_a.cpp" />
-    <ClCompile Include="Extractor_aD.cpp" />
-    <ClCompile Include="Extractor_m.cpp" />
-    <ClCompile Include="Extractor_mD.cpp" />
-    <ClCompile Include="Leaf.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Missile.cpp" />
-    <ClCompile Include="OpenGLHelper.cpp" />
-    <ClCompile Include="OpenGLRenderer.cpp" />
-    <ClCompile Include="Node.cpp" />
-    <ClCompile Include="NodeConstructor.cpp" />
-    <ClCompile Include="Terrain.cpp" />
-    <ClCompile Include="training.cpp" />
-    <ClCompile Include="TreeElement.cpp" />
-    <ClCompile Include="Unit.cpp" />
-    <ClCompile Include="ExtractorU.cpp" />
-    <ClCompile Include="CustomButton.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Action.hpp" />
     <ClInclude Include="AI.hpp" />
     <ClInclude Include="ArmorCapacity.hpp" />
@@ -108,5 +61,273 @@
     <ClInclude Include="ExtractorU.h" />
     <ClInclude Include="virtualOpenGL.h" />
     <ClInclude Include="CustomButton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AI.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Army.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="battle.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="training.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Extractor.cpp">
+      <Filter>Fichiers sources\Extractors</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorC.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorD.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorM.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="Extractor_m.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="Extractor_a.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="Extractor_mD.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="Extractor_aD.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorMD.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorP.cpp">
+      <Filter>Fichiers sources\Extractors\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorB.cpp">
+      <Filter>Fichiers sources\Extractors\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorU.cpp">
+      <Filter>Fichiers sources\Extractors\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorLD.cpp">
+      <Filter>Fichiers sources\Extractors\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorL.cpp">
+      <Filter>Fichiers sources\Extractors\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorHD.cpp">
+      <Filter>Fichiers sources\Extractors\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorH.cpp">
+      <Filter>Fichiers sources\Extractors\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorA.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorO.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorTLD.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorNH.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorNHD.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorNL.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorNLD.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorTH.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorTHD.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorTL.cpp">
+      <Filter>Fichiers sources\Extractors\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtractorConstructor.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeElement.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Leaf.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeConstructor.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Extractor.h">
+      <Filter>Fichiers d%27en-tête\Extractors</Filter>
+    </ClInclude>
+    <ClInclude Include="AI.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ArmorCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Army.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="battle.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Capacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyAction.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="FirerateCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveAction.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RangeCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="RegenCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ShotAction.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeedCapacity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorC.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorM.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="Extractor_mD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="Extractor_aD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorMD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="Extractor_m.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="Extractor_a.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorP.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorB.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorU.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorLD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorL.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorHD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorH.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorA.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorO.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorTLD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorNH.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorNHD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorNL.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorNLD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorTH.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorTHD.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorTL.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorConstructor.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeElement.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Leaf.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeConstructor.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="training.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
