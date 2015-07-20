@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 		Terrain::setMaxY(y);
 	}
 
-    OpenGLRenderer renderer(argc, argv);
+    //OpenGLRenderer renderer(argc, argv);
 
     std::srand(time(NULL));
     std::vector<std::unique_ptr<Army> > champions;

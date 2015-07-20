@@ -39,6 +39,9 @@ public:
                 //si une unité meurt alors qu'elle avait tiré ce tour ci le missile est détruit et ne peux donc plus être draw
                 OpenGLRenderer::RemoveElementToDraw(&opponent_->missile);
                 OpenGLRenderer::RemoveElementToDraw(opponent_);
+                //
+                //OpenGLRenderer::AddElementToDrawOneFrame(std::shared_ptr<virtualOpenGl>(&opponent_->missile));
+                //OpenGLRenderer::AddElementToDrawOneFrame(*opponent_);
                 std::cout<<" (dead !)"<<std::endl;
             }
         }

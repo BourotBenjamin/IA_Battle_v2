@@ -73,6 +73,8 @@ void OpenGLRenderer::StartDisplay(BattleParameter* parameter)
 
 void OpenGLRenderer::Initialize()
 {
+    this->elementToDraw.clear();
+
 	GLenum error = glewInit();
 	if (error != GL_NO_ERROR) {
 		// TODO
@@ -92,8 +94,6 @@ void OpenGLRenderer::Initialize()
 	previousTime = glutGet(GLUT_ELAPSED_TIME);
 
 	this->AddElementToDraw(terrain);
-
-    //this->PauseButton = new CustomButton(5, 5, 100, 25, 0, 0, "Button", switchPauseButton);
 }
 
 void OpenGLRenderer::Render()
@@ -169,8 +169,6 @@ void OpenGLRenderer::Render()
     {
         this->RemoveElementToDraw(element);
     }
-
-    //this->PauseButton->ButtonDraw();
 
 	glUseProgram(0);
 

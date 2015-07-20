@@ -31,8 +31,10 @@ void fight(const Army& a, const Army& b, int& scoreA, int& scoreB, bool log)
     AI ai;
     int turn = 1;
 
-    BattleParameter parameter(myA, myB, scoreA, scoreB, log, ai, turn);
+    BattleParameter parameter(myA, myB, 0, 0, log, ai, turn);
     OpenGLRenderer::StartDisplay(&parameter);//,executeOneTurn);
+    scoreA = parameter.scoreA;
+    scoreB = parameter.scoreB;
 }
 
 void executeOneTurn(BattleParameter* parameter)

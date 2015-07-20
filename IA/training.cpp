@@ -52,6 +52,7 @@ std::unique_ptr<Army> train(int iterations, int threshold, int populationSize, i
         for(auto itA = armies.begin(); itA != armies.end(); ++itA) {
 
             for(auto itB = itA+1; itB != armies.end(); ++itB){
+                OpenGLRenderer(0, 0);
                 itA->army->ArmyColor = CustomColor(0.0f, 0, 1.0f);
                 itB->army->ArmyColor = CustomColor(1.0f, 0.0f, 0);
 
@@ -61,6 +62,10 @@ std::unique_ptr<Army> train(int iterations, int threshold, int populationSize, i
             	itB->score += sB;
             }
             for(auto itC = champions.begin(); itC != champions.end(); ++itC) {
+                OpenGLRenderer(0, 0);
+                itA->army->ArmyColor = CustomColor(0.0f, 0, 1.0f);
+                itC->get()->ArmyColor = CustomColor(1.0f, 0.0f, 0);
+
                 int sA, sC=0;
 				fight(*(itA->army), **itC, sA, sC);
                 itA->score += sA*championsBonus;
