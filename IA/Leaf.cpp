@@ -31,11 +31,8 @@ Leaf::~Leaf()
 {
 }
 
-std::unique_ptr<Action> Leaf::execute(void* u, void* a, void* o)
+std::unique_ptr<Action> Leaf::execute(Unit& unit, Army& allies, Army& oponents)
 {
-	Unit& unit = *((Unit*)u);
-	Army& allies = *((Army*)a);
-	Army& oponents = *((Army*)o);
 	switch (action)
 	{
 	case 'M':

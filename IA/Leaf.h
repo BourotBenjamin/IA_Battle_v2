@@ -11,7 +11,7 @@ public:
 	Leaf();
 	Leaf(std::string*);
 	~Leaf();
-	std::unique_ptr<Action> execute(void* u, void* a, void* o);
+	std::unique_ptr<Action> execute(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
 private:
 	char action;

@@ -30,11 +30,9 @@ Node::~Node()
 
 
 
-std::unique_ptr<Action> Node::execute(void* u, void* a, void* o)
+std::unique_ptr<Action> Node::execute(Unit& unit, Army& allies, Army& oponents)
 {
-	Unit unit = *((Unit*)u);
-	Army allies = *((Army*)a);
-	Army oponents = *((Army*)o);
+
 	float value1 = this->extractor1->get(unit, allies, oponents);
 	float value2 = this->extractor1->get(unit, allies, oponents);
 	bool cond = false;
@@ -48,9 +46,9 @@ std::unique_ptr<Action> Node::execute(void* u, void* a, void* o)
 		cond = (value1 = value2);
 	}
 	if (cond)
-		return this->son1->execute(u, a, o);
+		return this->son1->execute(unit, allies, oponents);
 	else
-		return this->son2->execute(u, a, o);
+		return this->son2->execute(unit, allies, oponents);
 }
 
 std::string Node::getCode()
