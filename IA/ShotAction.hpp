@@ -21,9 +21,9 @@ public:
     //Log parameter indicate if we write something or not on the standard output
     void execute(bool log = false)
     {
-        opponent_->takeDamage(unit_->getDamage().getValue());
         if (unit_->shoot())
         {
+            opponent_->takeDamage(unit_->getDamage().getValue());
             unit_->missile = Missile(unit_->getPosition(), opponent_->getPosition());
             OpenGLRenderer::AddElementToDraw(&unit_->missile);
         }

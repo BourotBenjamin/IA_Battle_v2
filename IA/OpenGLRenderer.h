@@ -17,6 +17,8 @@ public:
     static void StartDisplay(BattleParameter* parameter);
     static void AddElementToDraw(virtualOpenGl* element) { elementToDraw.push_back(element); }
     static void RemoveElementToDraw(virtualOpenGl* element);
+    bool isPaused = false;
+    bool isStepByStep = false;
 	~OpenGLRenderer();
 private:
 	void Initialize();
@@ -28,10 +30,10 @@ private:
 	GLdouble _angleX=0;
 	float depth = -7.0f;
 	bool dragAction;
-	bool isPaused=false;
-	bool isStepByStep=false;
 	BattleParameter* instanceParameter;
     bool mustRedisplay;
     std::vector<virtualOpenGl*> OpenGLRenderer::GetAnimatedElementForState(State selectedState);
+
+    //CustomButton* PauseButton;
 };
 

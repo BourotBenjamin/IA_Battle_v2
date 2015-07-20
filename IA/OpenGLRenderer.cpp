@@ -7,6 +7,8 @@ OpenGLRenderer* g_currentInstance;
 std::vector<virtualOpenGl*> OpenGLRenderer::elementToDraw = std::vector<virtualOpenGl*>();
 int previousTime = 0;
 
+void switchPauseButton() { g_currentInstance->isPaused = !g_currentInstance->isPaused; }
+
 void _drawCallback()
 {
 	g_currentInstance->Render();
@@ -90,6 +92,8 @@ void OpenGLRenderer::Initialize()
 	previousTime = glutGet(GLUT_ELAPSED_TIME);
 
 	this->AddElementToDraw(terrain);
+
+    //this->PauseButton = new CustomButton(5, 5, 100, 25, 0, 0, "Button", switchPauseButton);
 }
 
 void OpenGLRenderer::Render()
@@ -165,6 +169,8 @@ void OpenGLRenderer::Render()
     {
         this->RemoveElementToDraw(element);
     }
+
+    //this->PauseButton->ButtonDraw();
 
 	glUseProgram(0);
 
