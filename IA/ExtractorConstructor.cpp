@@ -180,14 +180,13 @@ std::unique_ptr<Extractor<UnitSet>> ExtractorConstructor::createArmyExtractor(st
 		extractor = new ExtractorO();
 		break;
 	case 'N':
-		*code = std::string(std::string(code->begin() + 1, code->end()));
+		*code = std::string(std::string(code->begin() + 2, code->end()));
 		switch (c2)
 		{
 		case 'L':
 			switch (c3)
 			{
 			case 'D':
-				*code = std::string(std::string(code->begin() + 1, code->end()));
 				extractor = new ExtractorNLD(code);
 				break;
 			default:
@@ -199,7 +198,6 @@ std::unique_ptr<Extractor<UnitSet>> ExtractorConstructor::createArmyExtractor(st
 			switch (c3)
 			{
 			case 'D':
-				*code = std::string(std::string(code->begin() + 1, code->end()));
 				extractor = new ExtractorNHD(code);
 				break;
 			default:
@@ -210,14 +208,13 @@ std::unique_ptr<Extractor<UnitSet>> ExtractorConstructor::createArmyExtractor(st
 		}
 		break;
 	case 'T':
-		*code = std::string(std::string(code->begin() + 1, code->end()));
+		*code = std::string(std::string(code->begin() + 2, code->end()));
 		switch (c2)
 		{
 		case 'L':
 			switch (c3)
 			{
 			case 'D':
-				*code = std::string(std::string(code->begin() + 1, code->end()));
 				extractor = new ExtractorTLD(code);
 				break;
 			default:
@@ -229,7 +226,6 @@ std::unique_ptr<Extractor<UnitSet>> ExtractorConstructor::createArmyExtractor(st
 			switch (c3)
 			{
 			case 'D':
-				*code = std::string(std::string(code->begin() + 1, code->end()));
 				extractor = new ExtractorTHD(code);
 				break;
 			default:
