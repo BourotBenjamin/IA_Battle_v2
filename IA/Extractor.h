@@ -10,7 +10,7 @@ public:
 	Extractor() {};
 	~Extractor() {};
 	virtual T& get(Unit& unit, Army& allies, Army& oponents) = 0;
-	virtual std::string getCode() { return std::string(""); };
+	virtual std::string getCode()const { return std::string(""); };
 	static std::string generateRandomCode(int i)  { return std::string(""); };
 
 };

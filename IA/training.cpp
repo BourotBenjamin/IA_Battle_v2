@@ -60,7 +60,7 @@ std::unique_ptr<Army> train(int iterations, int threshold, int populationSize, i
                 fight(*(itA->army), **itC, sA, sC);
                 itA->score += sA*championsBonus;
                 itA->score -= (sC*championsBonus)/2;
-            }
+			}
         }
 
 

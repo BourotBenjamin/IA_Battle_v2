@@ -31,7 +31,7 @@ Point& ExtractorB::get(Unit& unit, Army& allies, Army& oponents)
 	return p;
 }
 
-std::string ExtractorB::getCode()
+std::string ExtractorB::getCode()const
 {
 	return std::string("B") + extractorArmy->getCode();
 }

@@ -28,8 +28,8 @@ void Unit::init_()
 Unit::Unit(int globalLevel)
 {
     init_();
-	std::string ia = std::string("?mDOPU<C5U?C2LDOPU<C4U?C6U<V0.001!ALDOPU!EBO!EBO!MBO ");
-	//std::string ia = NodeConstructor::generateRandomTreeElementCode(0);
+	//std::string ia = std::string("?mDOPU<C5U?C2LDOPU<C4U?C6U<V0.001!ALDOPU!EBO!EBO!MBO");
+	std::string ia = NodeConstructor::generateRandomTreeElementCode(0);
 	this->iaCode_ = ia;
 	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&ia));
     while(globalLevel--) {
@@ -180,8 +180,9 @@ Unit Unit::operator*(const Unit& unit)const
             levels[index]++;
             global--;
         }
-    }
+	}
 	std::string ia;
+	std::string ia2 = tree->getCode();
 	if (std::rand() % 2)
 	{
 		ia = std::string(iaCode_);
@@ -232,5 +233,5 @@ Unit Unit::load(std::istream& in)
 
 std::string Unit::getRandomIATreeSonCode()const
 {
-	return tree->getRandomSonCode(rand() % 5);
+	return tree->getRandomSonCode(rand() % 3);
 }

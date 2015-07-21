@@ -36,7 +36,7 @@ UnitSet& ExtractorTLD::get(Unit& unit, Army& allies, Army& oponents)
 	return vector;
 }
 
-std::string ExtractorTLD::getCode()
+std::string ExtractorTLD::getCode()const
 {
 	return std::string("TLD") + std::to_string(seuil) + extractorArmy->getCode() + extractorPoint->getCode();
 }

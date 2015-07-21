@@ -6,7 +6,7 @@ public:
 	ExtractorNLD(std::string* code);
 	~ExtractorNLD();
 	UnitSet& get(Unit& unit, Army& allies, Army& oponents);
-	std::string getCode();
+	std::string getCode()const;
 	static std::string generateRandomCode(int i);
 private:
 	std::unique_ptr<Extractor<Point>> extractorPoint;

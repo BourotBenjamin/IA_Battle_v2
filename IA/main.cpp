@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
     } catch(...) {
 
     }
-    std::unique_ptr<Army> army = train(10,100, 20, 10, 100, champions);
+    std::unique_ptr<Army> army = train(10,100, 4, 10, 100, champions);
     std::cout<<*army<<std::endl;
     std::ofstream out("Army_10_100.save");
     army->save(out);

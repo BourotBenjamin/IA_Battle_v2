@@ -15,7 +15,7 @@ UnitSet& ExtractorA::get(Unit& unit, Army& allies, Army& oponents)
 	return allies.getUnitsList();
 }
 
-std::string ExtractorA::getCode()
+std::string ExtractorA::getCode()const
 {
 	return std::string("A");
 }

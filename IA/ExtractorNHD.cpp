@@ -40,7 +40,7 @@ UnitSet& ExtractorNHD::get(Unit& unit, Army& allies, Army& oponents)
 	return vector;
 }
 
-std::string ExtractorNHD::getCode()
+std::string ExtractorNHD::getCode()const
 {
 	return std::string("NHD") + std::to_string(nb_entity) + extractorArmy->getCode() + extractorPoint->getCode();
 }

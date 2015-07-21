@@ -21,7 +21,7 @@ double& ExtractorD::get(Unit& unit, Army& allies, Army& oponents)
 	return d;
 }
 
-std::string ExtractorD::getCode()
+std::string ExtractorD::getCode()const
 {
 	return std::string("D") + extractorUnit->getCode() + extractorPoint->getCode();
 }

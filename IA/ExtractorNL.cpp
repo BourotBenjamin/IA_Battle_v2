@@ -39,7 +39,7 @@ UnitSet& ExtractorNL::get(Unit& unit, Army& allies, Army& oponents)
 	return vector;
 }
 
-std::string ExtractorNL::getCode()
+std::string ExtractorNL::getCode()const
 {
 	return std::string("NL") + std::to_string(capacity) + std::to_string(nb_entity) + extractorArmy->getCode();
 }

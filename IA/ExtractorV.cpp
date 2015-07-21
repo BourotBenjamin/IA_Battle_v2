@@ -17,7 +17,7 @@ double& ExtractorV::get(Unit& unit, Army& allies, Army& oponents)
 	return value;
 }
 
-std::string ExtractorV::getCode()
+std::string ExtractorV::getCode()const
 {
 	return std::string("V") + std::to_string(value);
 }

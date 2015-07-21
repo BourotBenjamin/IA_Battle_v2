@@ -29,7 +29,7 @@ double& Extractor_a::get(Unit& unit, Army& allies, Army& oponents)
 	return sum;
 }
 
-std::string Extractor_a::getCode()
+std::string Extractor_a::getCode()const
 {
 	return std::string("a") + std::to_string(capacity) + extractorArmy->getCode();
 }

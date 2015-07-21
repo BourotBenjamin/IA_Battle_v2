@@ -28,7 +28,7 @@ double& Extractor_m::get(Unit& unit, Army& allies, Army& oponents)
 	return min;
 }
 
-std::string Extractor_m::getCode()
+std::string Extractor_m::getCode()const
 {
 	return std::string("m") + std::to_string(capacity) + extractorArmy->getCode();
 }

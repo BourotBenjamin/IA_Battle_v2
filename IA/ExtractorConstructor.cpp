@@ -250,7 +250,7 @@ std::string ExtractorConstructor::generateRandomExtractorCode(int i, ExtractorTy
 	switch (type)
 	{
 	case UNIT:
-		if (i>5)
+		if (i>3)
 			return ExtractorU::generateRandomCode(i);
 		r = rand() % 5;
 		switch (r)
@@ -285,7 +285,7 @@ std::string ExtractorConstructor::generateRandomExtractorCode(int i, ExtractorTy
 		}
 		break;
 	case VALUE:
-		r = rand() % 8;
+		r = rand() % 9;
 		switch (r)
 		{
 		case 0:
@@ -312,10 +312,13 @@ std::string ExtractorConstructor::generateRandomExtractorCode(int i, ExtractorTy
 		case 7:
 			return ExtractorMD::generateRandomCode(i);
 			break;
+		case 8:
+			return ExtractorV::generateRandomCode(i);
+			break;
 		}
 		break;
 	case ARMY:
-		if (i>5)
+		if (i>3)
 			r = rand() % 2;
 		else
 			r = rand() % 10;

@@ -7,7 +7,7 @@ public:
 	Extractor_mD(std::string* code);
 	~Extractor_mD();
 	double& get(Unit& unit, Army& allies, Army& oponents);
-	std::string getCode();
+	std::string getCode()const;
 	static std::string generateRandomCode(int i);
 private:
 	std::unique_ptr<Extractor<UnitSet>> extractorArmy;

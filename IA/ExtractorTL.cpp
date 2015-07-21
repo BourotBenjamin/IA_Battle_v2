@@ -34,7 +34,7 @@ UnitSet& ExtractorTL::get(Unit& unit, Army& allies, Army& oponents)
 	return vector;
 }
 
-std::string ExtractorTL::getCode()
+std::string ExtractorTL::getCode()const
 {
 	return std::string("TL") + std::to_string(capacity) + std::to_string(seuil) + extractorArmy->getCode();
 }

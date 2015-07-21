@@ -31,7 +31,7 @@ double& Extractor_aD::get(Unit& unit, Army& allies, Army& oponents)
 	return sum;
 }
 
-std::string Extractor_aD::getCode()
+std::string Extractor_aD::getCode()const
 {
 	return std::string("aD") + extractorArmy->getCode() + extractorPoint->getCode();
 }

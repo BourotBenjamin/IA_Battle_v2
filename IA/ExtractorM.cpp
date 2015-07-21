@@ -28,7 +28,7 @@ double& ExtractorM::get(Unit& unit, Army& allies, Army& oponents)
 	return max;
 }
 
-std::string ExtractorM::getCode()
+std::string ExtractorM::getCode()const
 {
 	return std::string("M") + std::to_string(capacity) + extractorArmy->getCode();
 }

@@ -35,7 +35,7 @@ UnitSet& ExtractorTHD::get(Unit& unit, Army& allies, Army& oponents)
 	return vector;
 }
 
-std::string ExtractorTHD::getCode()
+std::string ExtractorTHD::getCode()const
 {
 	return std::string("THD") + std::to_string(seuil) + extractorArmy->getCode() + extractorPoint->getCode();
 }

@@ -20,7 +20,7 @@ double& ExtractorC::get(Unit& unit, Army& allies, Army& oponents)
 	return c;
 }
 
-std::string ExtractorC::getCode()
+std::string ExtractorC::getCode()const
 {
 	return std::string("C") + std::to_string(capacity) + extractorUnit->getCode();
 }

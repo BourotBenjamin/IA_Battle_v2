@@ -16,7 +16,7 @@ Unit& ExtractorU::get(Unit& unit, Army& allies, Army& oponents)
 	return unit;
 }
 
-std::string ExtractorU::getCode()
+std::string ExtractorU::getCode()const
 {
 	return std::string("U");
 }

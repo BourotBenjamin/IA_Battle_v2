@@ -29,7 +29,7 @@ Unit& ExtractorH::get(Unit& unit, Army& allies, Army& oponents)
 	return (*best);
 }
 
-std::string ExtractorH::getCode()
+std::string ExtractorH::getCode()const
 {
 	return std::string("H") + std::to_string(capacity) + extractorArmy->getCode();
 }

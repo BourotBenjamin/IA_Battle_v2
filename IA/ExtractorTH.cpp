@@ -34,7 +34,7 @@ UnitSet& ExtractorTH::get(Unit& unit, Army& allies, Army& oponents)
 	return vector;
 }
 
-std::string ExtractorTH::getCode()
+std::string ExtractorTH::getCode()const
 {
 	return std::string("TH") + std::to_string(capacity) + std::to_string(seuil) + extractorArmy->getCode();
 }

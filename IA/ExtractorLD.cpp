@@ -34,7 +34,7 @@ Unit& ExtractorLD::get(Unit& unit, Army& allies, Army& oponents)
 	return (*nearest);
 }
 
-std::string ExtractorLD::getCode()
+std::string ExtractorLD::getCode()const
 {
 	return std::string("LD") + extractorArmy->getCode() + extractorPoint->getCode();
 }

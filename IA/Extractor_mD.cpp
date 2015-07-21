@@ -31,7 +31,7 @@ double& Extractor_mD::get(Unit& unit, Army& allies, Army& oponents)
 	return min;
 }
 
-std::string Extractor_mD::getCode()
+std::string Extractor_mD::getCode()const
 {
 	return std::string("mD") + extractorArmy->getCode() + extractorPoint->getCode();
 }

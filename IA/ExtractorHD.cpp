@@ -32,7 +32,7 @@ Unit& ExtractorHD::get(Unit& unit, Army& allies, Army& oponents)
 	return (*furthest);
 }
 
-std::string ExtractorHD::getCode()
+std::string ExtractorHD::getCode()const
 {
 	return std::string("HD") + extractorArmy->getCode() + extractorPoint->getCode();
 }
