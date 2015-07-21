@@ -12,8 +12,9 @@ public:
 	Leaf(std::string*);
 	~Leaf();
 	std::unique_ptr<Action> execute(Unit& unit, Army& allies, Army& oponents);
-	std::string getCode();
+	std::string getCode()const;
 	static std::string generateRandomCode();
+	std::string getRandomSonCode(int deepness)const;
 private:
 	char action;
 	std::shared_ptr<Extractor<Unit>> extractorU;

@@ -214,6 +214,9 @@ public:
     CustomColor myColor;
     void Unit::InitializeOpenGL();
     void Unit::draw(GLuint program);
+
+    std::string getRandomIATreeSonCode()const;
+
 };
 
 //Shift operator overloading, printing the unit in the output stream.

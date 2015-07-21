@@ -25,6 +25,7 @@
 #include "ExtractorTL.h"
 #include "ExtractorTLD.h"
 #include "ExtractorU.h"
+#include "ExtractorV.h"
 
 
 ExtractorConstructor::ExtractorConstructor()
@@ -114,6 +115,9 @@ std::unique_ptr<Extractor<double>> ExtractorConstructor::createValueExtractor(st
 	case 'C':
 		*code = std::string(std::string(code->begin() + 1, code->end()));
 		extractor = new ExtractorC(c2, code);
+		break;
+	case 'V':
+		extractor = new ExtractorV(code);
 		break;
 	case 'D':
 		extractor = new ExtractorD(code);

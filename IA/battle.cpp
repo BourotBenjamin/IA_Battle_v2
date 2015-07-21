@@ -78,7 +78,7 @@ void executeOneTurn(BattleParameter* parameter)
 		}
 	}
 
-    if (A->size() <= 0 || B->size() <= 0 || parameter->turn++ >= 10000)
+    if (A->size() <= 0 || B->size() <= 0 || parameter->turn++ >= 500)
 		endBattle(parameter);
 }
 

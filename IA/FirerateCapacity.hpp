@@ -12,7 +12,7 @@ private:
     void updateValue_()
     {
         value_ = 0;
-        reloadingTime_ = 1000.0/(level_+1.0);
+        reloadingTime_ = 100.0/(level_+1.0);
     }
 
 public:

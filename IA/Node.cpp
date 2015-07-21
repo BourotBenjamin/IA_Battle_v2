@@ -38,17 +38,20 @@ Node::~Node()
 std::unique_ptr<Action> Node::execute(Unit& unit, Army& allies, Army& oponents)
 {
 
-	double value1 = this->extractor1->get(unit, allies, oponents);
-	double value2 = this->extractor1->get(unit, allies, oponents);
+	double& value1 = this->extractor1->get(unit, allies, oponents);
+	double& value2 = this->extractor2->get(unit, allies, oponents);
 	bool cond = false;
 	switch (operand)
 	{
 	case '<':
 		cond = (value1 < value2);
+		break;
 	case '>':
 		cond = (value1 > value2);
+		break;
 	case '=':
 		cond = (value1 == value2);
+		break;
 	}
 	if (cond)
 		return this->son1->execute(unit, allies, oponents);
@@ -56,7 +59,7 @@ std::unique_ptr<Action> Node::execute(Unit& unit, Army& allies, Army& oponents)
 		return this->son2->execute(unit, allies, oponents);
 }
 
-std::string Node::getCode()
+std::string Node::getCode()const
 {
 	return std::string("?") + extractor1->getCode() + std::string(&operand, 1) + extractor2->getCode() + son1->getCode() + son2->getCode();
 }
@@ -78,4 +81,14 @@ std::string Node::generateRandomCode(int i)
 		break;
 	}
 	return std::string("?") + ExtractorConstructor::generateRandomExtractorCode(i, ExtractorType::VALUE) + std::string(operand) + ExtractorConstructor::generateRandomExtractorCode(i, ExtractorType::VALUE) + NodeConstructor::generateRandomTreeElementCode(i) + NodeConstructor::generateRandomTreeElementCode(i);
+}
+
+std::string Node::getRandomSonCode(int deepness)const
+{
+	if (deepness == 0)
+		return getCode();
+	else if (rand() % 2 == 0)
+		return son1->getRandomSonCode(deepness - 1);
+	else
+		return son2->getRandomSonCode(deepness - 1);
 }

@@ -177,6 +177,9 @@
     <ClCompile Include="NodeConstructor.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="ExtractorV.cpp">
+      <Filter>Fichiers sources\Extractors\Value</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Extractor.h">
@@ -328,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="training.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtractorV.h">
+      <Filter>Fichiers d%27en-tête\Extractors\Value</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
