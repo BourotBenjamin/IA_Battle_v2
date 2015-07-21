@@ -42,7 +42,8 @@ void Unit::InitializeOpenGL()
 Unit::Unit(int globalLevel)
 {
     init_();
-	std::string ia = NodeConstructor::generateRandomTreeElementCode(0);
+    std::string ia = std::string("?mDOPU<C5U?C2LDOPU<C4U!ALDOPU!EBO!MBO");
+	//std::string ia = NodeConstructor::generateRandomTreeElementCode(0);
 	this->iaCode_ = ia;
 	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&ia));
     while(globalLevel--) {
