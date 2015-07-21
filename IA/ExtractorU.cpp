@@ -20,3 +20,8 @@ std::string ExtractorU::getCode()
 {
 	return std::string("U");
 }
+
+std::string ExtractorU::generateRandomCode(int i)
+{
+	return std::string("U");
+}

@@ -7,8 +7,9 @@ public:
 	~ExtractorH();
 	Unit& get(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
+	static std::string generateRandomCode(int i);
 private:
-	Extractor<UnitSet>* extractorArmy;
+	std::unique_ptr<Extractor<UnitSet>> extractorArmy;
 	int capacity;
 };
 

@@ -1,25 +1,31 @@
 #include "ExtractorLD.h"
+#include "ExtractorConstructor.h"
 
 
 ExtractorLD::ExtractorLD(std::string* code)
 {
-	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
-	extractorPoint = (Extractor<Point>*) ExtractorConstructor::create(code);
+	extractorArmy = std::move(ExtractorConstructor::createArmyExtractor(code));
+	extractorPoint = std::move(ExtractorConstructor::createPointExtractor(code));
 }
 
 
 ExtractorLD::~ExtractorLD()
 {
+	extractorArmy.release();
+	extractorPoint.release();
 }
 
 Unit& ExtractorLD::get(Unit& unit, Army& allies, Army& oponents)
 {
-	float min = FLT_MAX;
+	double min = FLT_MAX;
 	std::shared_ptr<Unit> nearest = nullptr;
 	Point& p = extractorPoint->get(unit, allies, oponents);
-	for each(auto& u in extractorArmy->get(unit, allies, oponents))
+	UnitSet& units = extractorArmy->get(unit, allies, oponents);
+	if (units.size() == 0)
+		throw std::invalid_argument("No units");
+	for each(auto& u in units)
 	{
-		float dist = u->getPosition().distance(p);
+		double dist = u->getPosition().distance(p);
 		if (dist < min)
 		{
 			nearest = u;
@@ -31,4 +37,9 @@ Unit& ExtractorLD::get(Unit& unit, Army& allies, Army& oponents)
 std::string ExtractorLD::getCode()
 {
 	return std::string("LD") + extractorArmy->getCode() + extractorPoint->getCode();
+}
+
+std::string ExtractorLD::generateRandomCode(int i)
+{
+	return std::string("LD") + ExtractorConstructor::generateRandomExtractorCode(i, ExtractorType::ARMY) + ExtractorConstructor::generateRandomExtractorCode(i, ExtractorType::POINT);
 }

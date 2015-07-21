@@ -8,7 +8,8 @@ public:
 	~ExtractorP();
 	Point& get(Unit& unit, Army& allies, Army& oponents);
 	std::string ExtractorP::getCode();
+	static std::string generateRandomCode(int i);
 private:
-	Extractor<Unit>* extractorUnit;
+	std::unique_ptr<Extractor<Unit>> extractorUnit;
 };
 

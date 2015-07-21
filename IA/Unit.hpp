@@ -169,7 +169,7 @@ public:
 
     //Apply the damages to the unit, by first reducing them by the armor,
     //then apply it to the life.
-    void takeDamage(float value);
+    void takeDamage(double value);
 
     //Return true if the unit have still life, false otherwise.
     bool isAlive()const

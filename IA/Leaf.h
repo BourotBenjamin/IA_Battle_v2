@@ -13,9 +13,11 @@ public:
 	~Leaf();
 	std::unique_ptr<Action> execute(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
+	static std::string generateRandomCode();
 private:
 	char action;
 	std::shared_ptr<Extractor<Unit>> extractorU;
 	std::shared_ptr<Extractor<Point>> extractorP;
+	Point p;
 };
 

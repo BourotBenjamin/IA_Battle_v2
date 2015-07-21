@@ -9,7 +9,7 @@ protected:
     //Level of the capacity
     int level_;
     //Value of the capacity
-    float value_;
+    double value_;
 
     //Method updating the value of the capacity in regard of the level
     virtual void updateValue_() = 0;
@@ -44,7 +44,7 @@ public:
     }
 
     //Value getter
-    float getValue() const
+    double getValue() const
     {
         return value_;
     }

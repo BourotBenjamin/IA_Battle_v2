@@ -23,7 +23,7 @@ public:
 			opponent_->takeDamage(unit_->getDamage().getValue());
 			if(log) {
 				std::cout<<"Unit "<<unit_->getId()<<" shoot Unit "<<opponent_->getId();
-				float hp = opponent_->getLife().getValue();
+				double hp = opponent_->getLife().getValue();
 				if(hp>0) {
 					std::cout<<" ("<<hp<<"hp remaining)"<<std::endl;
 				} else {

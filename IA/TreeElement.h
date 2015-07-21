@@ -11,5 +11,6 @@ public:
 	~TreeElement();
 	virtual std::unique_ptr<Action> execute(Unit& u, Army& a, Army& o) = 0;
 	virtual std::string getCode() = 0;
+	static std::string generateRandomCode() { return std::string(""); };
 };
 

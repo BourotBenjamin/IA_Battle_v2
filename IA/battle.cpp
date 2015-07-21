@@ -62,6 +62,8 @@ void fight(const Army& a, const Army& b, int& scoreA, int& scoreB, bool log)
 					break;
             } catch(std::invalid_argument e) {
 
+				if (log)
+					std::cout << "can't do anything" << std::endl;
                 //can happens if the unit is already dead or if an army is empty
                 continue;
             }

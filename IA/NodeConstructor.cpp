@@ -24,3 +24,20 @@ void* NodeConstructor::create(std::string* str)
 		return (void*)new Node(str);
 	}
 }
+
+
+std::string NodeConstructor::generateRandomTreeElementCode(int i)
+{
+	++i;
+	if (i > 5)
+		return Leaf::generateRandomCode();
+	int r = rand() % 6;
+	if (r > 4)
+	{
+		return Leaf::generateRandomCode();
+	}
+	else
+	{
+		return Node::generateRandomCode(i);
+	}
+}

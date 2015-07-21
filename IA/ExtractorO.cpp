@@ -19,3 +19,8 @@ std::string ExtractorO::getCode()
 {
 	return std::string("O");
 }
+
+std::string ExtractorO::generateRandomCode(int i)
+{
+	return std::string("O");
+}
