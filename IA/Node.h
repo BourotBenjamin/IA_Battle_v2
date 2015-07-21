@@ -9,8 +9,9 @@ public:
 	Node(std::string* str);
 	~Node();
 	std::unique_ptr<Action> execute(Unit& unit, Army& allies, Army& oponents);
-	std::string getCode();
+	std::string getCode()const;
 	static std::string generateRandomCode(int i);
+	std::string getRandomSonCode(int deepness)const;
 
 private:
 	std::shared_ptr<Extractor<double>> extractor1;

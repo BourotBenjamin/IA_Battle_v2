@@ -28,7 +28,8 @@ void Unit::init_()
 Unit::Unit(int globalLevel)
 {
     init_();
-	std::string ia = NodeConstructor::generateRandomTreeElementCode(0);
+	std::string ia = std::string("?mDOPU<C5U?C2LDOPU<C4U?C6U<V0.001!ALDOPU!EBO!EBO!MBO ");
+	//std::string ia = NodeConstructor::generateRandomTreeElementCode(0);
 	this->iaCode_ = ia;
 	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&ia));
     while(globalLevel--) {
@@ -180,9 +181,28 @@ Unit Unit::operator*(const Unit& unit)const
             global--;
         }
     }
-    if(std::rand()%2)
-        return Unit(iaCode_,levels);
-    return Unit(unit.getIACode(),levels);
+	std::string ia;
+	if (std::rand() % 2)
+	{
+		ia = std::string(iaCode_);
+		std::string oldIaPart = getRandomIATreeSonCode();
+		size_t start_pos = ia.find(oldIaPart);
+		if (start_pos != std::string::npos)
+		{
+			ia.replace(start_pos, oldIaPart.size(), unit.getRandomIATreeSonCode());
+		}
+	}
+	else
+	{
+		ia = std::string(unit.getIACode());
+		std::string oldIaPart = unit.getRandomIATreeSonCode();
+		size_t start_pos = ia.find(oldIaPart);
+		if (start_pos != std::string::npos)
+		{
+			ia.replace(start_pos, oldIaPart.size(), getRandomIATreeSonCode());
+		}
+	}
+    return Unit(ia,levels);
 }
 
 
@@ -207,4 +227,10 @@ Unit Unit::load(std::istream& in)
     });
     in >> iacode;
     return Unit(iacode, levels);
+}
+
+
+std::string Unit::getRandomIATreeSonCode()const
+{
+	return tree->getRandomSonCode(rand() % 5);
 }

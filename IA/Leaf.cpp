@@ -37,7 +37,7 @@ std::unique_ptr<Action> Leaf::execute(Unit& unit, Army& allies, Army& oponents)
 	case 'M':
 		return std::unique_ptr<Action>(new MoveAction(unit, this->extractorP->get(unit, allies, oponents)));
 	case 'E':
-		p = 1000 * (2 * unit.getPosition()) - this->extractorP->get(unit, allies, oponents);
+		p = (-1000 * (this->extractorP->get(unit, allies, oponents) - unit.getPosition())) + unit.getPosition();
 		Terrain::clampPointInTerrain(p);
 		return std::unique_ptr<Action>(new MoveAction(unit, p));
 	case 'A':
@@ -47,7 +47,7 @@ std::unique_ptr<Action> Leaf::execute(Unit& unit, Army& allies, Army& oponents)
 	}
 }
 
-std::string Leaf::getCode()
+std::string Leaf::getCode()const
 {
 	switch (action)
 	{
@@ -76,4 +76,9 @@ std::string Leaf::generateRandomCode()
 	default:
 		return std::string("!N");
 	}
+}
+
+std::string Leaf::getRandomSonCode(int deepness)const
+{
+	return getCode();
 }

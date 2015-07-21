@@ -190,6 +190,7 @@ public:
     //Load a unit from the input stream
     static Unit load(std::istream& in);
 
+	std::string getRandomIATreeSonCode()const;
 
 };
 
