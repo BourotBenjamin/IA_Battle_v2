@@ -7,5 +7,6 @@ public:
 	~ExtractorO();
 	UnitSet& get(Unit& unit, Army& allies, Army& oponents);
 	std::string getCode();
+	static std::string generateRandomCode(int i);
 };
 

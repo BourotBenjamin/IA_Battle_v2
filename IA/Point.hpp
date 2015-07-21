@@ -7,23 +7,23 @@
 //Class representing a D point
 class Point {
 private:
-    float x_;//X coordinate
-    float y_;//Y coordinate
+    double x_;//X coordinate
+    double y_;//Y coordinate
 
 public:
     //Natural constructor
-    Point(float x=0, float y=0):x_(x), y_(y) {}
+    Point(double x=0, double y=0):x_(x), y_(y) {}
 
 
     ////////////////////////
     //getters
     ////////////////////////
-    float getX()const
+    double getX()const
     {
         return x_;
     }
 
-    float getY()const
+    double getY()const
     {
         return y_;
     }
@@ -31,12 +31,12 @@ public:
     ///////////////////////
     //setters
     ///////////////////////
-    void setX(float x)
+    void setX(double x)
     {
         x_ = x;
     }
 
-    void setY(float y)
+    void setY(double y)
     {
         y_ = y;
     }
@@ -70,14 +70,14 @@ public:
         return *this;
     }
 
-    Point& operator*=(float s)
+    Point& operator*=(double s)
     {
         x_*=s;
         y_*=s;
         return *this;
     }
 
-    Point& operator/=(float s)
+    Point& operator/=(double s)
     {
         return *this *= (1.0/s);
     }
@@ -92,12 +92,12 @@ public:
         return Point(*this)-=p;
     }
 
-    Point operator*(float s)const
+    Point operator*(double s)const
     {
         return Point(*this)*=s;
     }
 
-    Point operator/(float s)const
+    Point operator/(double s)const
     {
         return Point(*this)/=s;
     }
@@ -108,19 +108,19 @@ public:
     }
 
     //Compute the dot product with another point
-    float dot(const Point& p)const
+    double dot(const Point& p)const
     {
         return x_*p.x_+y_*p.y_;
     }
 
     //Compute the norm of the point
-    float norm()const
+    double norm()const
     {
         return sqrt(this->dot(*this));
     }
 
     //Compute the Euclidian distance between this point nd another
-    float distance(Point p)const
+    double distance(Point p)const
     {
         p-=*this;
         return p.norm();
@@ -129,10 +129,10 @@ public:
     //Traslate this point in direction of the one in parameter:
     // if distance is bigger than max, translate to max units
     // otherwise translate to the position p
-    void moveTo(const Point& p, float max)
+    void moveTo(const Point& p, double max)
     {
         Point vec = p - *this;
-        float d = vec.norm();
+        double d = vec.norm();
         if(d <= max) {
             (*this)+=vec;
         } else {
@@ -142,7 +142,7 @@ public:
 };
 
 //Star operator overloading. Case  Scalar*Point
-inline Point operator*(float s, Point p )
+inline Point operator*(double s, Point p )
 {
     return p*=s;
 }

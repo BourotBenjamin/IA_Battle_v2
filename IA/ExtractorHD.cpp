@@ -1,25 +1,31 @@
 #include "ExtractorHD.h"
+#include "ExtractorConstructor.h"
 
 
 ExtractorHD::ExtractorHD(std::string* code)
 {
-	extractorArmy = (Extractor<UnitSet>*) ExtractorConstructor::create(code);
-	extractorPoint = (Extractor<Point>*) ExtractorConstructor::create(code);
+	extractorArmy = std::move(ExtractorConstructor::createArmyExtractor(code));
+	extractorPoint = std::move(ExtractorConstructor::createPointExtractor(code));
 }
 
 
 ExtractorHD::~ExtractorHD()
 {
+	extractorArmy.release();
+	extractorPoint.release();
 }
 
 Unit& ExtractorHD::get(Unit& unit, Army& allies, Army& oponents)
 {
-	float max = -1;
+	double max = -1;
 	std::shared_ptr<Unit> furthest = nullptr;
-	Point p = extractorPoint->get(unit, allies, oponents);
-	for each(auto& u in extractorArmy->get(unit, allies, oponents))
+	Point& p = extractorPoint->get(unit, allies, oponents);
+	UnitSet& units = extractorArmy->get(unit, allies, oponents);
+	if (units.size() == 0)
+		throw std::invalid_argument("No units");
+	for each(auto& u in units)
 	{
-		float dist = u->getPosition().distance(p);
+		double dist = u->getPosition().distance(p);
 		if (dist > max)
 			furthest = u;
 	}
@@ -29,4 +35,9 @@ Unit& ExtractorHD::get(Unit& unit, Army& allies, Army& oponents)
 std::string ExtractorHD::getCode()
 {
 	return std::string("HD") + extractorArmy->getCode() + extractorPoint->getCode();
+}
+
+std::string ExtractorHD::generateRandomCode(int i)
+{
+	return std::string("HD") + ExtractorConstructor::generateRandomExtractorCode(i, ExtractorType::ARMY) + ExtractorConstructor::generateRandomExtractorCode(i, ExtractorType::POINT_E);
 }

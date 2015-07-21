@@ -71,7 +71,8 @@ void executeOneTurn(BattleParameter* parameter)
 				if (it->opponents->size() == 0)
 					break;
             } catch(std::invalid_argument e) {
-
+				if (parameter->log)
+					std::cout << "can't do anything" << std::endl;
 			//can happens if the unit is already dead or if an army is empty
 			continue;
 		}
@@ -80,6 +81,7 @@ void executeOneTurn(BattleParameter* parameter)
     if (A->size() <= 0 || B->size() <= 0 || parameter->turn++ >= 10000)
 		endBattle(parameter);
 }
+
 
 void endBattle(BattleParameter* parameter)
 {

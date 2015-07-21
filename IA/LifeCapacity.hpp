@@ -6,7 +6,7 @@
 //Class representing the life capacity of an unit
 class LifeCapacity : public Capacity {
 private:
-    float maxLife_;
+    double maxLife_;
 
     void updateValue_()
     {
@@ -20,7 +20,7 @@ public:
     }
 
     //Decrease the life value
-    bool takeDamage(float damageValue)
+    bool takeDamage(double damageValue)
     {
         value_ -= damageValue;
         return value_ > 0;
@@ -33,7 +33,7 @@ public:
     }
 
     //Increase the life value
-    bool takeRegen(float regenValue)
+    bool takeRegen(double regenValue)
     {
         value_ += regenValue;
 		if (value_ > maxLife_)

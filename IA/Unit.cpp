@@ -42,9 +42,9 @@ void Unit::InitializeOpenGL()
 Unit::Unit(int globalLevel)
 {
     init_();
-	this->iaCode_ = std::string("?C1LDOPU<14U!ALDOPU?aDOPU<a5O!MBO!ALDOPU");
-	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&iaCode_));
-	this->iaCode_ = std::string("?C1LDOPU<C1U!ALDOPU?aDOPU<a5O!MBO!ALDOPU");
+	std::string ia = NodeConstructor::generateRandomTreeElementCode(0);
+	this->iaCode_ = ia;
+	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&ia));
     while(globalLevel--) {
         this->capacities_[std::rand()%this->capacities_.size()]->upgrade();
     }
@@ -74,7 +74,7 @@ Unit::Unit(std::string iaCode, std::vector<int>& levels)
 	this->iaCode_ = iaCode;
 	tree = std::shared_ptr<TreeElement>((TreeElement*)NodeConstructor::create(&iaCode_));
 	this->iaCode_ = iaCode;
-    for(int i = 0; i < levels.size() && i < capacities_.size(); ++i) {
+    for(unsigned int i = 0; i < levels.size() && i < capacities_.size(); ++i) {
         capacities_[i]->upgrade(levels[i]);
     }
 }
@@ -87,7 +87,7 @@ Unit::Unit(const Unit& unit)
 	this->iaCode_ = unit.iaCode_;
 	tree = std::shared_ptr<TreeElement>(std::move((TreeElement*)NodeConstructor::create(&iaCode_)));
 	this->iaCode_ = unit.iaCode_;
-    for(int i = 0;  i < capacities_.size(); ++i) {
+    for(unsigned int i = 0;  i < capacities_.size(); ++i) {
         capacities_[i]->upgrade(unit.capacities_[i]->getLevel());
     }
 }
@@ -146,7 +146,7 @@ bool Unit::shoot()
 
 //Apply the damages to the unit, by first reducing them by the armor,
 //then apply it to the life.
-void Unit::takeDamage(float value)
+void Unit::takeDamage(double value)
 {
     getLife().takeDamage(value);
 }

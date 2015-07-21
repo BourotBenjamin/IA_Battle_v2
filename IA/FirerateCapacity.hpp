@@ -7,7 +7,7 @@
 //Class representing the firerate capacity of an unit
 class FirerateCapacity : public Capacity {
 private:
-    float reloadingTime_;
+    double reloadingTime_;
 
     void updateValue_()
     {

@@ -1,5 +1,6 @@
 #include "Node.h"
 #include "NodeConstructor.h"
+#include "ExtractorConstructor.h"
 
 
 Node::Node()
@@ -14,8 +15,8 @@ Node::Node(std::string* str)
 	std::string extractor1_str = base_match[1].str();
 	std::string extractor2_str = base_match[3].str();
 	int l = extractor1_str.length() + extractor2_str.length() + 1;
-	extractor1 = std::shared_ptr<Extractor<float>>((Extractor<float>*) ExtractorConstructor::create(&extractor1_str));
-	extractor2 = std::shared_ptr<Extractor<float>>((Extractor<float>*) ExtractorConstructor::create(&extractor2_str));
+	extractor1 = std::move(ExtractorConstructor::createValueExtractor(&extractor1_str));
+	extractor2 = std::move(ExtractorConstructor::createValueExtractor(&extractor2_str));
 	operand = base_match[2].str().at(0);
 	*str = std::string(str->begin() + l, str->end());
 	son1 = std::unique_ptr<TreeElement>((TreeElement*) NodeConstructor::create(str));
@@ -25,6 +26,10 @@ Node::Node(std::string* str)
 
 Node::~Node()
 {
+	extractor1.reset();
+	extractor2.reset();
+	son1.release();
+	son2.release();
 }
 
 
@@ -33,8 +38,8 @@ Node::~Node()
 std::unique_ptr<Action> Node::execute(Unit& unit, Army& allies, Army& oponents)
 {
 
-	float value1 = this->extractor1->get(unit, allies, oponents);
-	float value2 = this->extractor1->get(unit, allies, oponents);
+	double value1 = this->extractor1->get(unit, allies, oponents);
+	double value2 = this->extractor1->get(unit, allies, oponents);
 	bool cond = false;
 	switch (operand)
 	{
@@ -43,7 +48,7 @@ std::unique_ptr<Action> Node::execute(Unit& unit, Army& allies, Army& oponents)
 	case '>':
 		cond = (value1 > value2);
 	case '=':
-		cond = (value1 = value2);
+		cond = (value1 == value2);
 	}
 	if (cond)
 		return this->son1->execute(unit, allies, oponents);
@@ -53,5 +58,24 @@ std::unique_ptr<Action> Node::execute(Unit& unit, Army& allies, Army& oponents)
 
 std::string Node::getCode()
 {
-	return std::string("?") + extractor1->getCode() + std::to_string(operand) + extractor2->getCode() + son1->getCode() + son2->getCode();
+	return std::string("?") + extractor1->getCode() + std::string(&operand, 1) + extractor2->getCode() + son1->getCode() + son2->getCode();
+}
+
+std::string Node::generateRandomCode(int i)
+{
+	char* operand = "*";
+	int operandId = rand() % 3;
+	switch (operandId)
+	{
+	case 0:
+		operand = "<";
+		break;
+	case 1:
+		operand = "<";
+		break;
+	case 2:
+		operand = "=";
+		break;
+	}
+	return std::string("?") + ExtractorConstructor::generateRandomExtractorCode(i, ExtractorType::VALUE) + std::string(operand) + ExtractorConstructor::generateRandomExtractorCode(i, ExtractorType::VALUE) + NodeConstructor::generateRandomTreeElementCode(i) + NodeConstructor::generateRandomTreeElementCode(i);
 }
